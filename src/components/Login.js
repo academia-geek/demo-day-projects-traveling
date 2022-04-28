@@ -1,10 +1,9 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import React from 'react'
-import { FcGoogle } from 'react-icons/fc'
-import { BsFacebook } from 'react-icons/bs'
+import { BsFacebook, BsGoogle } from 'react-icons/bs'
 import { useDispatch } from 'react-redux';
-import { loginAsync, loginGoogle, logoutAsync } from '../Redux/actions/loginActions';
+import { loginAsync, loginGoogle } from '../Redux/actions/loginActions';
 import { ContainerForm, Error, LoginGoogleFace } from '../styles/styledComp/formsStyle';
 
 let schema = yup.object().shape({
@@ -20,13 +19,10 @@ const Login = () => {
         dispatch(loginGoogle())
     }
 
-    const handleLogout = () => {
-        dispatch(logoutAsync())
-    }
-
     return (
         <ContainerForm>
-            <h1>Login</h1>
+            <img className="logoImg" src="https://cdn-icons-png.flaticon.com/512/1152/1152405.png" alt="bird-icon" />
+            <h1>INICIA SESIÓN</h1>
             <Formik
                 initialValues={{
                     email: '',
@@ -74,22 +70,19 @@ const Login = () => {
                         ) : null}
 
                         <button type="submit">
-                            Submit
+                            Iniciar Sesión
                         </button>
 
 
 
                         <LoginGoogleFace>
-                            <FcGoogle className='icon' onClick={handleGoogle} />
-                            <BsFacebook className='icon' />
+                            <div onClick={handleGoogle} className='iconContainer iconContainerGoogle'><BsGoogle className='icon iconGoogle' /> <p>Inicia Sesión con Google</p></div>
+                            <div className='iconContainer iconContainerFacebook'><BsFacebook className='icon iconFacebook' /> <p>Inicia Sesión con Facebook</p></div>
                         </LoginGoogleFace>
                     </form>
                 )}
             </Formik>
 
-            <button onClick={handleLogout}>
-                Logout
-            </button>
         </ContainerForm>
     )
 }

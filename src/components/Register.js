@@ -1,8 +1,7 @@
 import { Formik } from "formik";
 import * as yup from "yup";
 import React from "react";
-import { FcGoogle } from 'react-icons/fc'
-import { BsFacebook } from 'react-icons/bs'
+import { BsFacebook, BsGoogle } from 'react-icons/bs'
 import { useDispatch } from "react-redux";
 import { registerAsync } from "../Redux/actions/registerActions";
 import { ContainerForm, Error, LoginGoogleFace } from "../styles/styledComp/formsStyle";
@@ -23,11 +22,12 @@ const Register = () => {
 
 	const handleGoogle = () => {
 		dispatch(loginGoogle())
-}
+	}
 
 	return (
 		<ContainerForm>
-			<h1>Register</h1>
+			<img className="logoImg" src="https://cdn-icons-png.flaticon.com/512/1152/1152405.png" alt="bird-icon" />
+			<h1>REGISTRATE</h1>
 			<Formik
 				initialValues={{
 					name: "",
@@ -99,13 +99,13 @@ const Register = () => {
 						) : null}
 
 						<button type="submit">
-							Submit
+							Registrarse
 						</button>
 
 						<LoginGoogleFace>
-							<FcGoogle className='icon' onClick={handleGoogle} />
-							<BsFacebook className='icon' />
-						</LoginGoogleFace>
+                            <div onClick={handleGoogle} className='iconContainer iconContainerGoogle'><BsGoogle className='icon iconGoogle' /> <p>Inicia Sesión con Google</p></div>
+                            <div className='iconContainer iconContainerFacebook'><BsFacebook className='icon iconFacebook' /> <p>Inicia Sesión con Facebook</p></div>
+                        </LoginGoogleFace>
 					</form>
 				)}
 			</Formik>
