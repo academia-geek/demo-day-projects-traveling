@@ -22,7 +22,7 @@ const Login = () => {
 
     return (
         <ContainerForm>
-            <img className="logoImg" src="https://cdn-icons-png.flaticon.com/512/1152/1152405.png" alt="bird-icon" />
+            <img className="logoImg" src="https://res.cloudinary.com/dainl1ric/image/upload/v1651120998/bird_2_djvrbx.png" alt="bird-icon" />
             <h1>INICIA SESIÓN</h1>
             <Formik
                 initialValues={{

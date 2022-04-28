@@ -26,7 +26,7 @@ export const SpinnerLoading = styled.div`
 	width: 30px;
 	height: 30px;
 	margin: 50px;
-	border: solid 4px green;
+	border: solid 4px #27A2DE;
 	border-right-color: transparent;
 	border-radius: 50%;
 	animation: Spin 1s infinite;
