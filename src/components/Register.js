@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { registerAsync } from "../Redux/actions/registerActions";
 import { ContainerForm, Error, LoginGoogleFace } from "../styles/styledComp/formsStyle";
 import { loginGoogle } from "../Redux/actions/loginActions";
+import { Link } from 'react-router-dom'
 
 let schema = yup.object().shape({
 	name: yup.string().required("Campo Requerido"),
@@ -103,9 +104,11 @@ const Register = () => {
 						</button>
 
 						<LoginGoogleFace>
-                            <div onClick={handleGoogle} className='iconContainer iconContainerGoogle'><BsGoogle className='icon iconGoogle' /> <p>Inicia Sesión con Google</p></div>
-                            <div className='iconContainer iconContainerFacebook'><BsFacebook className='icon iconFacebook' /> <p>Inicia Sesión con Facebook</p></div>
-                        </LoginGoogleFace>
+							<div onClick={handleGoogle} className='iconContainer iconContainerGoogle'><BsGoogle className='icon iconGoogle' /> <p>Inicia Sesión con Google</p></div>
+							<div className='iconContainer iconContainerFacebook'><BsFacebook className='icon iconFacebook' /> <p>Inicia Sesión con Facebook</p></div>
+						</LoginGoogleFace>
+
+						<p>¿Ya tienes cuenta? <Link to="/login"> Inicia sesión aquí</Link></p>
 					</form>
 				)}
 			</Formik>

@@ -5,6 +5,7 @@ import { BsFacebook, BsGoogle } from 'react-icons/bs'
 import { useDispatch } from 'react-redux';
 import { loginAsync, loginGoogle } from '../Redux/actions/loginActions';
 import { ContainerForm, Error, LoginGoogleFace } from '../styles/styledComp/formsStyle';
+import { Link } from 'react-router-dom';
 
 let schema = yup.object().shape({
     email: yup.string().email('Debe escribir un correo valido').required('Campo Requerido'),
@@ -79,6 +80,8 @@ const Login = () => {
                             <div onClick={handleGoogle} className='iconContainer iconContainerGoogle'><BsGoogle className='icon iconGoogle' /> <p>Inicia Sesión con Google</p></div>
                             <div className='iconContainer iconContainerFacebook'><BsFacebook className='icon iconFacebook' /> <p>Inicia Sesión con Facebook</p></div>
                         </LoginGoogleFace>
+
+                        <p>¿No tienes cuenta? <Link to="/register"> Registrate aquí</Link></p>
                     </form>
                 )}
             </Formik>
