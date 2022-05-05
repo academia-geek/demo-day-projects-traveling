@@ -6,5 +6,6 @@ export const types = {
 
 export const typeEstadia = {
     add: "add",
-    list: "list"
+    list: "list",
+    search: 'search'
 }
