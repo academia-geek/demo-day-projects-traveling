@@ -14,6 +14,10 @@ export const estadiaReducer = ( state = initialState, action ) => {
             return {
                 estadias: [...action.payload],
             };
+        case typeEstadia.delete:
+                return {
+                  estadias: state.estadias.filter((p) => p.id !== action.payload),
+                };
         default:
             return state;
     }

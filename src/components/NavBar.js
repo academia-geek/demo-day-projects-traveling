@@ -22,7 +22,7 @@ const NavBar = () => {
         <header className='header'>
          <nav className="navbar">
                     <div className="div-img-navbar">
-                    <a href="default.asp" className="div-a-navbar-img"><img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651119791/bird_1_omobzp.png" alt="" className="img-home" /> <p>Traveling</p> </a>
+                    <a href="/" className="div-a-navbar-img"><img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651119791/bird_1_omobzp.png" alt="" className="img-home" /> <p>Traveling</p> </a>
                     </div>
                         
            
