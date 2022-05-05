@@ -16,7 +16,7 @@ export const estadiaReducer = ( state = initialState, action ) => {
             };
         case typeEstadia.search:
             return {
-                estadias: [...state.estadias.filter(es => es.nombre.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase()))]
+                estadias: [...state.estadias.filter(es => es.nombre.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase()) || es.descripcion.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase()))]
             };
         default:
             return state;
