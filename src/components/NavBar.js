@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import '../styles/CSS/styleNavBar.css'
 import { useDispatch } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
@@ -7,9 +6,6 @@ import { searchAsync } from '../Redux/actions/estadiaAction'
 const NavBar = () => {
 
     const dispatch = useDispatch()
-
-    const [inputSearch, setInputSearch] = useState({ search: '' })
-    const { search } = inputSearch
 
     const handleLogout = () => {
         dispatch(logoutAsync())
