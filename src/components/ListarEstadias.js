@@ -29,11 +29,11 @@ const ListarEstadias = () => {
                   className="car-cont mt-3"
                   style={{ width: "25rem", height: "27rem" }}
                 >
-                  <Card.Img className="imgCard" src={element.imagen} />
+                  <Card.Img className="imgCard" src={element.imagenes} />
                   <Card.Body>
                     <Card.Title className="nombre">{element.nombre}</Card.Title>
                     <label>{element.calificacion}</label>
-  
+                    <label>{element.ubicacion}</label>
                     <div className="container-price">
                       <h3 className="preciotext">
                         <span>COP $</span>
