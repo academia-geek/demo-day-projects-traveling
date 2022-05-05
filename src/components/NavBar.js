@@ -8,9 +8,6 @@ const NavBar = () => {
 
     const dispatch = useDispatch()
 
-    const [inputSearch, setInputSearch] = useState({ search: '' })
-    const { search } = inputSearch
-
     const handleLogout = () => {
         dispatch(logoutAsync())
     }
