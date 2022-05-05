@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
 import Logout from '../components/Logout'
 
-const DashBoardRoutes = ({ isAuth }) => {
+const DashBoardRoutes = () => {
     return (
         <div>
             <Routes>
