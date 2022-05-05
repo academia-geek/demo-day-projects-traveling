@@ -1,16 +1,16 @@
-import React from 'react'
 import { Route, Routes, Navigate } from 'react-router-dom'
+import AddEstadia from '../components/AddEstadia'
 import Home from '../components/Home'
-import Login from '../components/Login'
-import Register from '../components/Register'
 
-const DashBoardRoutes = () => {
+const DashBoardRoutes = ({ isHost }) => {
+
+    console.log(isHost)
+
     return (
         <div>
             <Routes>
-                <Route path='/login' element={<Login />} />
-                <Route path='/register' element={<Register />} />
                 <Route path="/" element={<Home />} />
+                {isHost ? <Route path="/add" element={<AddEstadia />} /> : null}
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </div>
