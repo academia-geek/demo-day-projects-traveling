@@ -3,3 +3,8 @@ export const types = {
     logout: 'Logout',
     register: 'Register',
 }
+
+export const typeEstadia = {
+    add: "add",
+    list: "list"
+}

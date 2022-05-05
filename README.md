@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# 👋🏼 Bienvenid@ al Demo Day.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center"><strong>!Bienvenido a tu ultimo proyecto en Academia Geek 🤖,  estamos muy a gusto en que seas parte de nuestra comunidad y poder apoyarte en tu crecimiento profesional en el maravilloso mundo del desarrollo del software!</strong></h3>
 
-## Available Scripts
+En este Proyecto a realizar vas a evidenciar los conceptos adquiridos en todo este proceso de aprendizaje como React Js, JavaScript, Redux y Firebase.
 
-In the project directory, you can run:
+# 🎯 Objetivo del DemoDay:
 
-### `npm start`
+Adquirir los conocimientos esenciales para realizar aplicaciones web dinámicas haciendo uso de JavaScript Vanilla. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Con el Demo Day se pretende que los beneficiarios demuestren todos sus conocimientos adquiridos a empresas Nacionales e Internacionales, con esto pueden vivir la experiencia de exponer un proyecto y una idea de negocio al mundo.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# 📹 Video explicado:
 
-### `npm test`
+[¿Como hacer el proyecto DemoDay?](https://drive.google.com/file/d/1kzQ5TuYc0NuIH6qGe5_Wr3Fnrjd5qKJp/view)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# ☕ Pasos para desarrollar el DemoDay:
 
-### `npm run build`
+1. Crear un proyecto con la plantilla Basic Kanban y en la descripción colocar:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+>- Texto descriptivo.
+>- Enlace del prototipo en alta fidelidad (marvel o herramienta usada).
+>- Enlace del despliegue.
+>- Enlace del video demo.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Todo esto usando markdown
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Crear dos milestones que corresponden a todo el desarrollo de la aplicación y se deben crear de esta forma:
 
-### `npm run eject`
+>- **Componente Design Thinking:** Poner una descripción y los objetivos de ese componente.
+>- **Componente técnico:** Poner una descripción y los objetivos de ese componente.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Crear issues por cada una de las tareas de Design Thinking:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+>- 5 por qué
+>- Perfil del cliente
+>- Mapa de valor
+>- Prototipo de baja fidelidad
+>- Prototipo de mediana fidelidad
+>- Presentación
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Crear issues por cada una de las tareas técnicas:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+>- Readme profesional
+>- Guía de estilos
+>- Landing Page del producto
+>- Diseño responsive
+>- Autenticación con Google y Facebook
+>- Enrutamiento dinámico con protección de rutas
+>- Crud con Firebase
+>- Imágenes y/o videos en la nube
 
-## Learn More
+5. Aquellos issues que consideren crear para su proceso de desarrollo se deben adjuntar al milestone de Componente Técnico.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+6. Cada uno de estos issues debe estar asignado a una o más intergrantes del equipo de desarrollo. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+7. Colocar etiquetas que logren diferenciar los diferentes issues según el componente al que corresponde.
