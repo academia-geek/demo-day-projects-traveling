@@ -1,11 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "../styles/css/styleNavBar.css"
 import { useDispatch } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
+import AddEstadia from './AddEstadia'
 
 const NavBar = () => {
 
     const dispatch = useDispatch()
+    const [modal, setModal] = useState(false)
+
+
+    const agregar = () => {
+        setModal(true)
+    }
 
     const handleLogout = () => {
         dispatch(logoutAsync())
@@ -25,6 +32,7 @@ const NavBar = () => {
                     <li><a href="news.asp">Experiencias</a></li>
                     <li><a href="about.asp">Estadias</a></li>
                     <li><a href="contact.asp">Contactanos</a></li>
+                    <li onClick={agregar}><a href="#">Agregar Estadía</a></li>
                 </ul>
             </div>
             <div className="div-buscar">
@@ -36,6 +44,7 @@ const NavBar = () => {
                 </button>
             </div>
         </nav>
+        {modal === true ? <AddEstadia /> : ""}
     </header>
   )
 }
