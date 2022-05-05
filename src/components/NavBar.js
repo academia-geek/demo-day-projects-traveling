@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import '../styles/CSS/styleNavBar.css'
 import { useDispatch } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
@@ -6,6 +7,12 @@ import { searchAsync } from '../Redux/actions/estadiaAction'
 const NavBar = () => {
 
     const dispatch = useDispatch()
+    const [modal, setModal] = useState(false)
+
+
+    const agregar = () => {
+        setModal(true)
+    }
 
     const handleLogout = () => {
         dispatch(logoutAsync())
@@ -24,6 +31,7 @@ const NavBar = () => {
             <nav className="navbar">
                 <div className="div-img-navbar">
                     <a href="default.asp" className="div-a-navbar-img"><img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651119791/bird_1_omobzp.png" alt="" className="img-home" /> <p>Traveling</p> </a>
+
                 </div>
 
 
