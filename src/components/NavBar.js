@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "../styles/css/styleNavBar.css"
+import '../styles/css/styleNavBar.css'
 import { useDispatch } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
 import AddEstadia from './AddEstadia'
@@ -107,6 +107,7 @@ const NavBar = () => {
             {modal === true ? <AddEstadia /> : ""}
         </header>
     )
+
 }
 
 export default NavBar

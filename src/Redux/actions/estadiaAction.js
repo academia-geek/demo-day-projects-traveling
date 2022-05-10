@@ -59,8 +59,8 @@ export const searchAsync = search => {
       dispatch(searchSync(search))
     };
   };
-  
-  export const searchSync = (search) => {
+}
+export const searchSync = (search) => {
   return {
     type: typeEstadia.search,
     payload: search
@@ -83,6 +83,6 @@ export const searchAsync = search => {
       payload: estadia,
     };
   };
-};
+
 
 

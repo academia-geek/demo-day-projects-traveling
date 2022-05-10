@@ -1,127 +1,206 @@
-import React, { useEffect, useState } from 'react'
-import { Button, Col, Container, Row } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import { deleteEstadia, listEstadiaAsync } from '../Redux/actions/estadiaAction';
-import ListarEstadias from './ListarEstadias';
-import NavBar from './NavBar';
-
+import React, { useEffect, useState } from "react";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import {
+  deleteEstadia,
+  listEstadiaAsync,
+} from "../Redux/actions/estadiaAction";
+import ListarEstadias from "./ListarEstadias";
+import NavBar from "./NavBar";
+import "../styles/css/Detalle.css";
+import { DiscussionEmbed } from 'disqus-react';
 
 export const Detalle = () => {
-    const { estadias } = useSelector((state) => state.estadias);
-  
-    const navigate = useNavigate();
+  const { estadias } = useSelector((state) => state.estadias);
 
-    const [detailEstadia, setDetailEstadia] = useState([]);
-    
-    const [images, setImages] = useState({
-      imageMain: "",
-      image1: "",
-      image2: "",
-      image3: "",
-    });
-  
-    const { id } = useParams();
-    const dispatch = useDispatch();
-  
-    // const editar = (id) => {
-    //   const getEstadia = estadias.find((p) => p.id === id);
-    //   setModal(true);
-    //   setEnviarDatosModal(getEstadia);
-    // };
-  
-    useEffect(() => {
-      dispatch(listEstadiaAsync());
-      const filterEstadia = estadias.find((product) => product.id === id);
-  
-      if (filterEstadia !== undefined) {
-        setDetailEstadia(filterEstadia);
-        setImages({
-          imageMain: filterEstadia.imagenes[0],
-          image1: filterEstadia.imagenes[1],
-          image2: filterEstadia.imagenes[2],
-          image3: filterEstadia.imagenes[3],
-        });
-      }
-    }, []);
-  
-    return (
-      <div>
-        <NavBar/>
-        <Container className="container-detail my-5">
-          <Row>
-            <Col xs={1} className="col-img">
-              <button className="mt-4">
-                <img className="imgSecund" src={images.image1} alt="img1" />
-              </button>
-              <br />
-              <button className="mt-4">
-                <img className="imgSecund" src={images.image2} alt="img2" />
-              </button>
-              <br />
-              <button className="mt-4">
-                <img className="imgSecund" src={images.image3} alt="img3" />
-              </button>
-            </Col>
-            <Col className="mt-5">
+  const navigate = useNavigate();
 
-              <img src={images.imageMain} alt="imgprincipal"/>
-              {/* <ReactImageMagnify
-                {...{
-                  smallImage: {
-                    alt: "Wristwatch by Ted Baker London",
-                    isFluidWidth: true,
-                    src: images.imageMain,
-                  },
-                  largeImage: {
-                    src: images.imageMain,
-                    width: 1200,
-                    height: 1800,
-                  },
-                }}
-              /> */}
-            </Col>
-            <Col>
-              <h2 className="fs-5 fw-bold">{detailEstadia.nombre}</h2>
-              <h4 className="stylBlue">
-                <span>Ubicación: </span>
-                {detailEstadia.ubicacion}
-              </h4>
+  const [detailEstadia, setDetailEstadia] = useState([]);
 
-              <p>
-                <span>Precio:</span>{" "}
-                <span className="precio">$ {detailEstadia.precio}</span>
-              </p>
-  
-              <hr />
+  const [images, setImages] = useState({
+    imageMain: "",
+    image1: "",
+    image2: "",
+    image3: "",
+  });
 
-              <p>
-               <span>{detailEstadia.descripcion}</span>
-              </p>
-              <span>Servicios</span>
-              <span className="fw-bold ms-2">{detailEstadia.servicios}</span>
-              <br />
-              <span>Máximo de Personas</span>
-              <span className="fw-bold ms-2">{detailEstadia.maxPersonas}</span>
-              <hr />
-              <ul>
-                <h3>Ofertante</h3>
-                <span>{detailEstadia.propietario}</span>
-                <span>{detailEstadia.contacto}</span>
-                {/* <li>- {descripcion.descr1}</li> */}
-                
-              </ul>
-            </Col>
-            <Col xs lg="2">
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  // const editar = (id) => {
+  //   const getEstadia = estadias.find((p) => p.id === id);
+  //   setModal(true);
+  //   setEnviarDatosModal(getEstadia);
+  // };
+
+  useEffect(() => {
+    dispatch(listEstadiaAsync());
+    const filterEstadia = estadias.find((product) => product.id === id);
+
+    if (filterEstadia !== undefined) {
+      setDetailEstadia(filterEstadia);
+      setImages({
+        imageMain: filterEstadia.imagenes[0],
+        image1: filterEstadia.imagenes[1],
+        image2: filterEstadia.imagenes[2],
+        image3: filterEstadia.imagenes[3],
+      });
+    }
+  }, []);
+
+  return (
+    <div>
+      <NavBar />
+      <div className="div-main-detalle">
+        <div className="div-fotos-detalle">
+          <div xs={1} className="col-img">
+            <button className="mt-4">
+              <img className="imgSecund" src={images.image1} alt="img1" />
+            </button>
+            <br />
+            <button className="mt-4">
+              <img className="imgSecund" src={images.image2} alt="img2" />
+            </button>
+            <br />
+            <button className="mt-4">
+              <img className="imgSecund" src={images.image3} alt="img3" />
+            </button>
+          </div>
+
+          <div className="img-main-detallle">
+            <img
+              className="img-detalle"
+              src={images.imageMain}
+              alt="imgprincipal"
+            />
+          </div>
+
+          <div>
+            <h2 className="fs-5 fw-bold">{detailEstadia.nombre}</h2>
+            <h4 className="stylBlue">
+              <span>Ubicación: </span>
+              {detailEstadia.ubicacion}
+            </h4>
+
+            <p>
+              <span>Precio:</span>{" "}
+              <span className="precio">${detailEstadia.precio}</span>
+              <span>COP Noche</span>
+            </p>
+
+            <hr />
+
+            <p>
+              <span>{detailEstadia.descripcion}</span>
+            </p>
+          </div>
+        </div>
+
+        <div className="div-servicio">
+          <h3>Servicios</h3>
+
+          <div className="div-icons-servicio">
+            <div>
+              <img
+                src="https://res.cloudinary.com/travelingimg/image/upload/v1652152004/2460762_vo0spj.png"
+                className="icon-servicio"
+              />
+              <p>Dormitorios</p>
+            </div>
+            <div>
+              <img
+                src="https://res.cloudinary.com/travelingimg/image/upload/v1652152050/2460781_oemq4w.png"
+                className="icon-servicio"
+              />
+              <p>Baños</p>
+            </div>
+            <div>
+              <img
+                src="https://res.cloudinary.com/travelingimg/image/upload/v1652151915/857681_eoie5m.png"
+                className="icon-servicio"
+              />
+              <p>Cocina</p>
+            </div>
+            <div>
+              <img
+                src="https://res.cloudinary.com/travelingimg/image/upload/v1652151862/93158_zxu3cp.png"
+                className="icon-servicio"
+              />
+              <p>Wifi</p>
+            </div>
+            <div>
+              <img
+                src="https://res.cloudinary.com/travelingimg/image/upload/v1652152908/2804212_gobsly.png"
+                className="icon-servicio"
+              />
+              <p>Parqueadero</p>
+            </div>
+            <div>
+              <img
+                src="https://res.cloudinary.com/travelingimg/image/upload/v1652152126/2460768_u9rrjh.png"
+                className="icon-servicio"
+              />
+              <p>TV</p>
+            </div>
+            <div>
+              <img
+                src="https://res.cloudinary.com/travelingimg/image/upload/v1652152250/2838912_ql1cpp.png"
+                className="icon-servicio"
+              />
+              <p>GPS</p>
+            </div>
+            <div>
+              <img
+                src="https://res.cloudinary.com/travelingimg/image/upload/v1652153122/4671557_u56qfe.png"
+                className="icon-servicio"
+              />
+              <p>Guia</p>
+            </div>
+          </div>
+          <hr />
+          <div className="div-main-anfitrion">
+            {/*<p className="">{detailEstadia.servicios}</p>*/}
+
+            <h3>Máximo de personas</h3>
+            <div className="div-max-personas">
+              <img
+                src="https://res.cloudinary.com/travelingimg/image/upload/v1652154128/3439380_gleey4.png"
+                className="icon-max-person"
+              />
+              <p>{detailEstadia.maxPersonas}</p>
+            </div>
+            <hr />
+            <div className="div-reservas">
               <div>
-                <Button
-                  // className="w-100"
-                  // variant="warning"
-                  // onClick={() => editar(detailEstadia.id)}
-                >
-                  Editar
-                </Button>
+                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652158008/2460737_oqkdgr.png" />
+                <h3>Reserva</h3>
+              </div>
+              <div className="div-fechas">
+                <div>
+                  <label>Fecha de llegada</label>
+                  <input type="date" />
+                </div>
+                <div>
+                  <label>Fecha de salida</label>
+                  <input type="date" />
+                </div>
+              </div>
+            </div>
+
+            <hr />
+            <div className="div-anfitrion">
+              <div>
+                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652156422/7440832_iebbfe.png" />
+              </div>
+              <div>
+                <h3>Anfitrion</h3>
+                <p>{detailEstadia.propietario}</p>
+                <p>{detailEstadia.contacto}</p>
+              </div>
+              <div className="div-btns">
+                <Button className="btn-editar">Editar</Button>
                 <Button
                   onClick={() => {
                     dispatch(deleteEstadia(detailEstadia.id));
@@ -133,20 +212,21 @@ export const Detalle = () => {
                     });
                     navigate("/");
                   }}
-                  className="w-100 mt-2"
+                  className="btn-delete"
                   variant="danger"
                 >
                   Eliminar
                 </Button>
               </div>
-            
-            </Col>
-          </Row>
-          {/* {modal === true ? <Editar modal={enviarDatosModal} /> : ""} */}
-        </Container>
-        <h2 className="ms-5">Otras Estadias que podrias visitar</h2>
-        <ListarEstadias/>
+            </div>
+            <hr />
+          </div>
+
+        </div>
       </div>
-    );
-  };
-  
+
+      <h2 className="ms-5">Otras Estadias que podrias visitar</h2>
+      <ListarEstadias />
+    </div>
+  );
+};
