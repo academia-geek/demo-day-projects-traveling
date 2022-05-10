@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import '../styles/css/styleNavBar.css'
-import { useDispatch } from 'react-redux'
+import '../styles/CSS/styleNavBar.css'
+import { useDispatch, useSelector } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
 import AddEstadia from './AddEstadia'
 import { Button, Offcanvas } from 'react-bootstrap'
 import UsePerfil from '../hooks/usePerfil'
 import { searchAsync } from '../Redux/actions/estadiaAction'
-
+import AddEstadia from './AddEstadia'
 
 const NavBar = () => {
 
@@ -78,6 +78,8 @@ const NavBar = () => {
         e.preventDefault()
     }
 
+    const { host } = useSelector(store => store.login)
+
     return (
         <header className='header'>
             <nav className="navbar">
@@ -91,13 +93,20 @@ const NavBar = () => {
                         <li><a href="news.asp">Experiencias</a></li>
                         <li><a href="about.asp">Estadias</a></li>
                         <li><a href="contact.asp">Contactanos</a></li>
-                        <li onClick={agregar}><a href="#">Agregar Estadía</a></li>
+
+                        { host === true ? <li onClick={agregar}><a href="#">Agregar Estadía</a></li> : null}
                     </ul>
                 </div>
                 <div className="div-buscar">
-                    <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651107696/search-removebg-preview_dcrux1.png" alt="buscar" className="img-buscar" />
+                    <form onSubmit={handleSubmit}>
+                        <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651107696/search-removebg-preview_dcrux1.png" alt="buscar" className="img-buscar" />
+                        <input
+                            type="text"
+                            className="input-buscar"
+                            onChange={handleChange}
+                        />
+                    </form>
 
-                    <input type="text" className="input-buscar" />
                     {['end'].map((placement, idx) => (
                         <OffCanvasExample key={idx} placement={placement} name={placement} />
                     ))}

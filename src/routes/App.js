@@ -25,14 +25,14 @@ const App = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsLogged(true)
-        getUserLogged(user.displayName, user.email)
-        dispatch(isUserHost(isHost))
+        getUserLogged(user.displayName, user.email) 
       } else {
         setIsLogged(false)
       }
       setchecking(false)
     })
-  }, [setIsLogged, setchecking])
+    dispatch(isUserHost(isHost))
+  }, [setIsLogged, setchecking, isHost])
 
   const getUserLogged = async (name, email) => {
     const querySnapshot = await getDocs(collection(dataBase, "users"));

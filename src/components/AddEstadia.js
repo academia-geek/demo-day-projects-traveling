@@ -4,6 +4,14 @@ import { Button, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { fileUpload } from '../helpers/fileUpload';
 import { addEstadiaAsync } from '../Redux/actions/estadiaAction';
+import 'leaflet/dist/leaflet.css'
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  useMapEvents
+} from 'react-leaflet';
+import { Icon } from 'leaflet';
 
 const AddEstadia = () => {
 
@@ -11,6 +19,8 @@ const AddEstadia = () => {
 
   const handleClose = () => setShow(false);
   const dispatch = useDispatch();
+
+  const [position, setPosition] = useState(null)
 
   const formik = useFormik({
     initialValues: {
@@ -26,7 +36,23 @@ const AddEstadia = () => {
       contacto: "",
     },
     onSubmit: (data) => {
-      dispatch(addEstadiaAsync(data));
+
+      const { nombre, imagenes, descripcion, ubicacion, servicios, caracteristicas, categoria, maxPersonas, propietario, contacto } = data
+      dispatch(addEstadiaAsync(
+        {
+          nombre,
+          imagenes,
+          descripcion,
+          ubicacion,
+          servicios,
+          caracteristicas,
+          categoria,
+          maxPersonas,
+          propietario,
+          contacto,
+          latitude: position.lat,
+          longitud: position.lng
+        }));
     },
   });
 
@@ -47,6 +73,26 @@ const AddEstadia = () => {
         console.log(error);
       });
   };
+
+  const iconMark = new Icon({
+    iconUrl: 'https://www.gauss-friends.org/wp-content/uploads/2020/04/location-pin-connectsafely-37.png',
+    iconSize: [50, 50],
+    inconAnchor: [30, 60]
+  })
+
+  function LocationMarker() {
+    const map = useMapEvents({
+      dblclick(e) {
+        setPosition(e.latlng)
+        map.flyTo(e.latlng, map.getZoom())
+        map.locate()
+      }
+    })
+
+    return position === null ? null : (
+      <Marker position={position} icon={iconMark}></Marker>
+    )
+  }
  
   return (
     <div>
@@ -61,7 +107,7 @@ const AddEstadia = () => {
               type="file"
               className="form-control "
               placeholder="url image"
-              name="url"
+              name="imagenes"
               style={{ display: "none" }}
               onChange={handleFileChanged}
               required
@@ -161,6 +207,19 @@ const AddEstadia = () => {
               required
             />
 
+            <label style={{ marginTop: '20px' }}>Seleccione la ubicación de la estadía (doble click)</label>
+            <MapContainer
+              center={[3.513, -73.147]}
+              zoom={4}
+              style={{ width: '100%', height: '400px', marginBottom: '20px' }}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+                url="https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=HvfR5qlnf4PcQQdtIgi1"
+              />
+              <LocationMarker />
+            </MapContainer>
+
             <div className="d-grid gap-2 mx-auto mt-2">
               <Button type="submit" className="btn btn-outline-dark">
                 Agregar
@@ -169,9 +228,6 @@ const AddEstadia = () => {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
         </Modal.Footer>
       </Modal>
     </div>
