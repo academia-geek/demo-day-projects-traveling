@@ -1,16 +1,14 @@
 import { Route, Routes, Navigate } from 'react-router-dom'
-import AddEstadia from '../components/AddEstadia'
+import { Detalle } from '../components/Detalle'
 import Home from '../components/Home'
 
+
 const DashBoardRoutes = ({ isHost }) => {
-
-    console.log(isHost)
-
     return (
         <div>
             <Routes>
                 <Route path="/" element={<Home />} />
-                {isHost ? <Route path="/add" element={<AddEstadia />} /> : null}
+                <Route path="/estadia/:id" element={<Detalle />} />
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </div>

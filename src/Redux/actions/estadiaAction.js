@@ -1,8 +1,7 @@
 
-
 // Agregar Estadia
 
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { addDoc, collection, getDocs, query, where, doc, deleteDoc } from "firebase/firestore";
 import { dataBase } from "../../firebase/firebaseConfig";
 import { typeEstadia } from "../types/types";
 
@@ -60,11 +59,30 @@ export const searchAsync = search => {
       dispatch(searchSync(search))
     };
   };
-};
-
-export const searchSync = (search) => {
+  
+  export const searchSync = (search) => {
   return {
     type: typeEstadia.search,
     payload: search
   }
 }
+
+  // delete estadia -------------------------------
+
+  export const deleteEstadia = (id) => {
+    return async (dispatch) => {
+      deleteDoc(doc(dataBase, "estadias", id));
+      dispatch(deleteSincrono(id));
+      dispatch(listEstadiaAsync());
+    };
+  };
+  
+  export const deleteSincrono = (estadia) => {
+    return {
+      type: typeEstadia.delete,
+      payload: estadia,
+    };
+  };
+};
+
+
