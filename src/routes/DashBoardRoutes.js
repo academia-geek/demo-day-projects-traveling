@@ -3,7 +3,6 @@ import { Route, Routes, Navigate } from 'react-router-dom'
 import { Detalle } from '../components/Detalle'
 import Home from '../components/Home'
 import Login from '../components/Login'
-import Perfil from '../components/Perfil'
 import Register from '../components/Register'
 
 
