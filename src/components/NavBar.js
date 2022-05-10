@@ -39,7 +39,7 @@ const NavBar = () => {
                 <ul className="ul-opciones">
                     <li><a href="default.asp">Descubre</a></li>
                     <li><a href="news.asp">Experiencias</a></li>
-                    <li><a href="about.asp">Estadias</a></li>
+                    <li><a href="estadias">Estadias</a></li>
                     <li><a href="anfitrion">Se Anfitrion</a></li>
                     <li onClick={agregar}><a href="#">Agregar Estadía</a></li>
                 </ul>
