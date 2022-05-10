@@ -1,9 +1,9 @@
-
 import React, { useState } from 'react'
 import '../styles/CSS/styleNavBar.css'
 import { useDispatch } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
 import { searchAsync } from '../Redux/actions/estadiaAction'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
 
@@ -14,9 +14,6 @@ const NavBar = () => {
     const agregar = () => {
         setModal(true)
     }
-
-    const [inputSearch, setInputSearch] = useState({ search: '' })
-    const { search } = inputSearch
 
     const handleLogout = () => {
         dispatch(logoutAsync())
@@ -45,6 +42,7 @@ const NavBar = () => {
                         <li><a href="news.asp">Experiencias</a></li>
                         <li><a href="about.asp">Estadias</a></li>
                         <li><a href="contact.asp">Contactanos</a></li>
+                        <li><Link to="/add">add</Link></li>
                     </ul>
                 </div>
                 <div className="div-buscar">
