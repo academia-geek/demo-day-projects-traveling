@@ -40,7 +40,7 @@ const NavBar = () => {
                     <li><a href="default.asp">Descubre</a></li>
                     <li><a href="news.asp">Experiencias</a></li>
                     <li><a href="about.asp">Estadias</a></li>
-                    <li><a href="contact.asp">Contactanos</a></li>
+                    <li><a href="anfitrion">Se Anfitrion</a></li>
                     <li onClick={agregar}><a href="#">Agregar Estadía</a></li>
                 </ul>
             </div>
