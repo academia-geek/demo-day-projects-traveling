@@ -7,47 +7,47 @@ import { addEstadiaAsync } from '../Redux/actions/estadiaAction';
 
 const AddEstadia = () => {
 
-    const [show, setShow] = useState(true);
+  const [show, setShow] = useState(true);
 
-    const handleClose = () => setShow(false);
-    const dispatch = useDispatch();
+  const handleClose = () => setShow(false);
+  const dispatch = useDispatch();
 
-    const formik = useFormik({
-        initialValues: {
-          nombre: "",
-          imagenes: [],
-          descripcion: "",
-          ubicacion: "",
-          servicios: [],
-          caracteristicas: [],
-          categoria: "",
-          maxPersonas: "",
-          propietario: "",
-          contacto: "",
-        },
-        onSubmit: (data) => {
-          dispatch(addEstadiaAsync(data));
-        },
+  const formik = useFormik({
+    initialValues: {
+      nombre: "",
+      imagenes: [],
+      descripcion: "",
+      ubicacion: "",
+      servicios: [],
+      caracteristicas: [],
+      categoria: "",
+      maxPersonas: "",
+      propietario: "",
+      contacto: "",
+    },
+    onSubmit: (data) => {
+      dispatch(addEstadiaAsync(data));
+    },
+  });
+
+  const handlePictureClick = () => {
+    document.querySelector("#fileSelector").click();
+  };
+
+  const handleFileChanged = (e) => {
+    const file = e.target.files[0];
+    fileUpload(file)
+      .then((response) => {
+        let array = formik.initialValues.imagenes;
+        array.push(response);
+        formik.initialValues.imagenes = response;
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-
-      const handlePictureClick = () => {
-        document.querySelector("#fileSelector").click();
-      };
-    
-      const handleFileChanged = (e) => {
-        const file = e.target.files[0];
-        fileUpload(file)
-          .then((response) => {
-            let array = formik.initialValues.imagenes;
-            array.push(response);
-            formik.initialValues.imagenes = response;
-            console.log(response);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      };
-
+  };
+ 
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
@@ -152,7 +152,7 @@ const AddEstadia = () => {
               onChange={formik.handleChange}
               required
             />
-             <input
+            <input
               className="form-control mt-2"
               autoComplete="off"
               name="contacto"
@@ -160,7 +160,6 @@ const AddEstadia = () => {
               onChange={formik.handleChange}
               required
             />
-            
 
             <div className="d-grid gap-2 mx-auto mt-2">
               <Button type="submit" className="btn btn-outline-dark">
