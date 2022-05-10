@@ -1,6 +1,6 @@
-import { types } from "../types/types"
+import { typeEstadia, types } from "../types/types"
 import { getAuth, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
-import { google } from "../../firebase/firebaseConfig"
+import { facebook, google } from "../../firebase/firebaseConfig"
 
 const auth = getAuth()
 
@@ -43,6 +43,19 @@ export const loginGoogle = () => {
         })
 }
 
+export const loginFacebook = () => {
+
+    signInWithPopup(auth, facebook)
+      .then(resp => {
+            console.log(resp)
+            console.log(resp.user)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+  
+};
+
 export const logoutAsync = () => {
     return (dispatch) => {
         signOut(auth)
@@ -56,5 +69,12 @@ export const logoutAsync = () => {
 export const logoutSinc = () => {
     return {
         type: types.logout
+    }
+}
+
+export const isUserHost = (isHost) => {
+    return {
+        type: types.host,
+        payload: isHost
     }
 }
