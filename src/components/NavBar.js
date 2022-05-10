@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
-import "../styles/css/styleNavBar.css"
+import React, { useState } from 'react'
+import '../styles/CSS/styleNavBar.css'
 import { useDispatch } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
-import AddEstadia from './AddEstadia'
+import { searchAsync } from '../Redux/actions/estadiaAction'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
 
@@ -16,6 +17,14 @@ const NavBar = () => {
 
     const handleLogout = () => {
         dispatch(logoutAsync())
+    }
+
+    const handleChange = ({ target }) => {
+        dispatch(searchAsync(target.value))
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault()
     }
 
     return (
@@ -47,6 +56,7 @@ const NavBar = () => {
         {modal === true ? <AddEstadia /> : ""}
     </header>
   )
+            
 }
 
 export default NavBar
