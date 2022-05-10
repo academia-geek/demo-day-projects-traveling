@@ -1,4 +1,4 @@
-import { types } from "../types/types"
+import { typeEstadia, types } from "../types/types"
 import { getAuth, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
 import { facebook, google } from "../../firebase/firebaseConfig"
 
@@ -69,5 +69,12 @@ export const logoutAsync = () => {
 export const logoutSinc = () => {
     return {
         type: types.logout
+    }
+}
+
+export const isUserHost = (isHost) => {
+    return {
+        type: types.host,
+        payload: isHost
     }
 }
