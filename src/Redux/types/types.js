@@ -10,5 +10,4 @@ export const typeEstadia = {
     list: "list",
     search: 'search',
     delete: "delete"
-
 }

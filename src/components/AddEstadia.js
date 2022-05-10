@@ -36,6 +36,7 @@ const AddEstadia = () => {
       contacto: "",
     },
     onSubmit: (data) => {
+
       const { nombre, imagenes, descripcion, ubicacion, servicios, caracteristicas, categoria, maxPersonas, propietario, contacto } = data
       dispatch(addEstadiaAsync(
         {
@@ -92,7 +93,7 @@ const AddEstadia = () => {
       <Marker position={position} icon={iconMark}></Marker>
     )
   }
-
+ 
   return (
     <div>
       <Modal show={show} onHide={handleClose}>
