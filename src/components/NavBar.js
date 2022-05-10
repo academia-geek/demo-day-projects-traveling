@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import '../styles/CSS/styleNavBar.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
 import { searchAsync } from '../Redux/actions/estadiaAction'
-import { Link } from 'react-router-dom'
+import AddEstadia from './AddEstadia'
 
 const NavBar = () => {
 
@@ -27,12 +27,13 @@ const NavBar = () => {
         e.preventDefault()
     }
 
+    const { host } = useSelector(store => store.login)
+
     return (
         <header className='header'>
             <nav className="navbar">
                 <div className="div-img-navbar">
-                    <a href="default.asp" className="div-a-navbar-img"><img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651119791/bird_1_omobzp.png" alt="" className="img-home" /> <p>Traveling</p> </a>
-
+                    <a href="/" className="div-a-navbar-img"><img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651119791/bird_1_omobzp.png" alt="" className="img-home" /> <p>Traveling</p> </a>
                 </div>
 
 
@@ -42,7 +43,7 @@ const NavBar = () => {
                         <li><a href="news.asp">Experiencias</a></li>
                         <li><a href="about.asp">Estadias</a></li>
                         <li><a href="contact.asp">Contactanos</a></li>
-                        <li><Link to="/add">add</Link></li>
+                        { host === true ? <li onClick={agregar}><a href="#">Agregar Estadía</a></li> : null}
                     </ul>
                 </div>
                 <div className="div-buscar">
@@ -54,15 +55,16 @@ const NavBar = () => {
                             onChange={handleChange}
                         />
                     </form>
-
                     <button className="btn-login" onClick={handleLogout}>
                         <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651121411/login_1_o1jahq.png" alt="" className="img-btn-login" />
                         Logout
                     </button>
                 </div>
             </nav>
+            {modal === true ? <AddEstadia /> : ""}
         </header>
     )
+
 }
 
 export default NavBar
