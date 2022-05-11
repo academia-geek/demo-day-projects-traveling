@@ -51,7 +51,7 @@ const NavBar = () => {
                         </button>
                     </Offcanvas.Header>
                     <Offcanvas.Body style={{ display: "flex", alignItems: "center", flexDirection: "column", gap: "10px"}}>
-                        {user.foto !== undefined
+                        {user.foto !== null
                             ? <img style={{
                                 borderRadius: "100px",
                                 border: "1px solid gray",
