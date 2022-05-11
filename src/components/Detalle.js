@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import Swal from "sweetalert2";
+import React, { useEffect, useState } from 'react'
+import { Button, Col, Container, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { deleteEstadia, listEstadiaAsync } from '../Redux/actions/estadiaAction';
+import ListarEstadias from './ListarEstadias';
+import '../styles/CSS/Detalle.css'
+import 'leaflet/dist/leaflet.css'
 import {
-  deleteEstadia,
-  listEstadiaAsync,
-} from "../Redux/actions/estadiaAction";
-import ListarEstadias from "./ListarEstadias";
-import NavBar from "./NavBar";
-import "../styles/css/Detalle.css";
-import { DiscussionEmbed } from 'disqus-react';
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup
+} from 'react-leaflet';
+import { Icon } from 'leaflet';
 
 export const Detalle = () => {
   const { estadias } = useSelector((state) => state.estadias);
@@ -18,6 +21,7 @@ export const Detalle = () => {
   const navigate = useNavigate();
 
   const [detailEstadia, setDetailEstadia] = useState([]);
+  const [position, setPosition] = useState(undefined);
 
   const [images, setImages] = useState({
     imageMain: "",
@@ -36,23 +40,38 @@ export const Detalle = () => {
   // };
 
   useEffect(() => {
-    dispatch(listEstadiaAsync());
-    const filterEstadia = estadias.find((product) => product.id === id);
+    if (estadias) {
 
-    if (filterEstadia !== undefined) {
-      setDetailEstadia(filterEstadia);
-      setImages({
-        imageMain: filterEstadia.imagenes[0],
-        image1: filterEstadia.imagenes[1],
-        image2: filterEstadia.imagenes[2],
-        image3: filterEstadia.imagenes[3],
-      });
+      const filterEstadia = estadias.find((product) => product.id === id);
+      console.log(filterEstadia)
+      if (filterEstadia !== undefined) {
+        setDetailEstadia(filterEstadia);
+        setImages({
+          imageMain: filterEstadia.imagenes[0],
+          image1: filterEstadia.imagenes[1],
+          image2: filterEstadia.imagenes[2],
+          image3: filterEstadia.imagenes[3],
+        });
+        setPosition({
+          latitude: filterEstadia.latitude,
+          longitud: filterEstadia.longitud
+        });
+
+      }
     }
+
+    dispatch(listEstadiaAsync());
+
   }, []);
+
+  const iconMark = new Icon({
+    iconUrl: 'https://www.gauss-friends.org/wp-content/uploads/2020/04/location-pin-connectsafely-37.png',
+    iconSize: [50, 50],
+    inconAnchor: [30, 60]
+  })
 
   return (
     <div>
-      <NavBar />
       <div className="div-main-detalle">
         <div className="div-fotos-detalle">
           <div xs={1} className="col-img">
@@ -203,14 +222,27 @@ export const Detalle = () => {
                 <Button className="btn-editar">Editar</Button>
                 <Button
                   onClick={() => {
-                    dispatch(deleteEstadia(detailEstadia.id));
                     Swal.fire({
-                      icon: "success",
-                      title: "Eliminado con exito",
-                      showConfirmButton: true,
-                      timer: 1500,
-                    });
-                    navigate("/");
+                      title: '¿Desea eliminar?',
+                      showDenyButton: true,
+                      denyButtonText: `Borrar`,
+                      confirmButtonText: 'Cancel',
+                    }).then((result) => {
+                      /* Read more about isConfirmed, isDenied below */
+                      if (result.isDenied) {
+
+                        dispatch(deleteEstadia(detailEstadia.id));
+
+                        Swal.fire({
+                          icon: "success",
+                          title: "Eliminado con exito",
+                          showConfirmButton: true,
+                          timer: 1500,
+                        });
+                        navigate("/");
+                      }
+                    })
+                    
                   }}
                   className="btn-delete"
                   variant="danger"
@@ -220,6 +252,18 @@ export const Detalle = () => {
               </div>
             </div>
             <hr />
+            <MapContainer
+              center={position === undefined ? [3.513, -73.147] : [position.latitude, position.longitud]}
+              zoom={5}
+              style={{ width: '100%', height: '60vh' }}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+                url="https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=HvfR5qlnf4PcQQdtIgi1"
+              />
+              {position !== undefined ? <Marker position={[position.latitude, position.longitud]} icon={iconMark}></Marker> : null}
+            </MapContainer>
+
           </div>
 
         </div>

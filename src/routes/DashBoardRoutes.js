@@ -4,11 +4,14 @@ import { Detalle } from '../components/Detalle'
 import Footer from '../components/Footer'
 import Home from '../components/Home'
 import ListarEstadias from '../components/ListarEstadias'
+import NavBar from '../components/NavBar'
 
 
 const DashBoardRoutes = ({ isHost }) => {
+
     return (
         <div>
+            <NavBar />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/estadias" element={<ListarEstadias />} />
@@ -16,7 +19,7 @@ const DashBoardRoutes = ({ isHost }) => {
                 <Route path="/anfitrion" element={<Anfitrion />} />
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { typeEstadia, types } from "../types/types"
+import { types } from "../types/types"
 import { getAuth, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
 import { facebook, google } from "../../firebase/firebaseConfig"
 
