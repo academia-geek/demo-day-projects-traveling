@@ -42,7 +42,7 @@ const Home = () => {
         <div className="div-publica">
             <div className="subdiv-publica campista">
                 <div className="subdiv-img">
-                    <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651114891/parte23_lcxi5g.png" alt="" className="img-campista"/>
+                    <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652284514/SANTANDER_kq6rkx.png" alt="" className="img-campista"/>
                 </div>
                 <div className="subdiv-btn">
                     <h2>No sabes donde ir?</h2>

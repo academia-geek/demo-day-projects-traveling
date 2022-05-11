@@ -1,0 +1,36 @@
+.div-guias{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 50px 3%;
+}
+
+.subdiv-guias {
+    text-align: center;
+    margin: 50px 5px;
+    padding: 40px 20px;
+    background-color: #0fa8ad;
+    border-radius: 15px;
+    width: 350px;
+    height: 400px;
+}
+
+.subdiv-guias h1{
+    font-size: 30px;
+    font-weight: 700;
+}
+.subdiv-guias h3{
+    font-size: 25px;
+}
+
+.img-guia{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.icon-guia {
+    width: 30px;
+}
