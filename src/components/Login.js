@@ -33,7 +33,6 @@ const Login = () => {
 
                 onSubmit={(values) => {
                     dispatch(loginAsync(values))
-                    console.log(values)
                 }}
             >
                 {({

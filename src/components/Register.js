@@ -36,6 +36,7 @@ const Register = () => {
 					password2: "",
 					email: "",
 					host: false,
+					guia: false,
 				}}
 				validationSchema={schema}
 				onSubmit={(values) => {
@@ -110,6 +111,18 @@ const Register = () => {
 								value={values.host}
 							/>
 							<strong> Ser Hospedador</strong> (Publicar estadias)
+						</label>
+
+						<label>
+							<input
+								type="checkbox"
+								name="guia"
+								placeholder="rol"
+								onChange={handleChange}
+								onBlur={handleBlur}
+								value={values.guia}
+							/>
+							<strong> Ser Guia </strong>
 						</label>
 
 						<button type="submit">
