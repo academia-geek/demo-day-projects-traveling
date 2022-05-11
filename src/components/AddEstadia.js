@@ -84,8 +84,8 @@ const AddEstadia = () => {
     const map = useMapEvents({
       dblclick(e) {
         setPosition(e.latlng)
+        console.log(e.latlng)
         map.flyTo(e.latlng, map.getZoom())
-        map.locate()
       }
     })
 

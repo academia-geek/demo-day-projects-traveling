@@ -17,6 +17,7 @@ const App = () => {
   const [checking, setchecking] = useState(true)
   const [isLogged, setIsLogged] = useState(false)
   const [isHost, setIsHost] = useState(false)
+  const [isGuia, setIsGuia] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -32,7 +33,7 @@ const App = () => {
       setchecking(false)
     })
     dispatch(isUserHost(isHost))
-  }, [setIsLogged, setchecking, isHost])
+  }, [setIsLogged, setchecking, isHost, isGuia])
 
   const getUserLogged = async (name, email) => {
     const querySnapshot = await getDocs(collection(dataBase, "users"));
@@ -49,6 +50,13 @@ const App = () => {
     } else {
       setIsHost(false);
     };
+
+    if (actualUser && actualUser.guia){
+      setIsGuia(true);
+    } else {
+      setIsGuia(false);
+    };
+    
   };
 
   if (checking) {

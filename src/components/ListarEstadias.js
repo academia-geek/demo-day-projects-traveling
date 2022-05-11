@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { listEstadiaAsync } from '../Redux/actions/estadiaAction';
 import '../styles/CSS/ListarEstadias.css'
-import NavBar from './NavBar';
 
 const ListarEstadias = () => {
     const { estadias } = useSelector((state) => state.estadias)
@@ -16,7 +15,6 @@ const ListarEstadias = () => {
     
     return (
     <div>
-
         <div>
         <Container className="container-product">
           <div className="card-columns">
