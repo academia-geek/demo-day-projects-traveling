@@ -5,7 +5,6 @@ import "../styles/CSS/Nosotros.css";
 const Home = () => {
   return (
     <div>
-      <NavBar />
       <div>
         <div className="div-info">
           <h1>Vive la aventura de tu vida con toda confianza y tranquilidad</h1>

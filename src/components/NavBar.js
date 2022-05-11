@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../styles/css/styleNavBar.css'
+import '../styles/CSS/styleNavBar.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
 import AddEstadia from './AddEstadia'
@@ -92,7 +92,7 @@ const NavBar = () => {
                         <li><a href="news.asp">Experiencias</a></li>
                         <li><Link to="/estadias">Estadias</Link></li>
                         <li><Link to="/anfitrion">Se anfitrion</Link></li>
-                        <li><a href="contact.asp">Contactanos</a></li>
+                        <li><Link to="/nosotros">Nosotros</Link></li>
                         <li><Link to="/guias">Guías</Link></li>
                         { host === true ? <li onClick={agregar}><a href="#">Agregar Estadía</a></li> : null}
                     </ul>
