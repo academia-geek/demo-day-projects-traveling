@@ -42,7 +42,7 @@ const Home = () => {
         <div className="div-publica">
             <div className="subdiv-publica campista">
                 <div className="subdiv-img">
-                    <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652284514/SANTANDER_kq6rkx.png" alt="" className="img-campista"/>
+                    <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652288877/Dise%C3%B1o_sin_t%C3%ADtulo_2_rdljsv.png" alt="" className="img-campista"/>
                 </div>
                 <div className="subdiv-btn">
                     <h2>No sabes donde ir?</h2>
@@ -54,7 +54,7 @@ const Home = () => {
             
             <div className="subdiv-publica hospedador">
                 <div className="subdiv-img">
-                    <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651114910/parte1_tkcncb.png" alt="" className="img-campista"/>
+                    <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652289072/Dise%C3%B1o_sin_t%C3%ADtulo_3_zbiiaw.png" alt="" className="img-campista"/>
                 </div>
                 <div className="subdiv-btn">
                     <h2>Publica tu lugar para que otros tengan donde llegar!</h2>
