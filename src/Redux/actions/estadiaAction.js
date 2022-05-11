@@ -83,6 +83,6 @@ export const deleteSincrono = (estadia) => {
     type: typeEstadia.delete,
     payload: estadia,
   };
-};
+}
 
 

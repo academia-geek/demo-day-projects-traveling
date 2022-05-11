@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import React from 'react'
 import { BsFacebook, BsGoogle } from 'react-icons/bs'
 import { useDispatch } from 'react-redux';
-import { loginAsync, loginGoogle } from '../Redux/actions/loginActions';
+import { loginAsync, loginFacebook, loginGoogle } from '../Redux/actions/loginActions';
 import { ContainerForm, Error, LoginGoogleFace } from '../styles/styledComp/formsStyle';
 import { Link } from 'react-router-dom';
 
@@ -18,6 +18,10 @@ const Login = () => {
 
     const handleGoogle = () => {
         dispatch(loginGoogle())
+    }
+
+    const handleFacebook = () => {
+        dispatch(loginFacebook())
     }
 
     return (
@@ -77,7 +81,7 @@ const Login = () => {
 
                         <LoginGoogleFace>
                             <div onClick={handleGoogle} className='iconContainer iconContainerGoogle'><BsGoogle className='icon iconGoogle' /> <p>Inicia Sesión con Google</p></div>
-                            <div className='iconContainer iconContainerFacebook'><BsFacebook className='icon iconFacebook' /> <p>Inicia Sesión con Facebook</p></div>
+                            <div onClick={handleFacebook} className='iconContainer iconContainerFacebook'><BsFacebook className='icon iconFacebook' /> <p>Inicia Sesión con Facebook</p></div>
                         </LoginGoogleFace>
 
                         <p>¿No tienes cuenta? <Link to="/register"> Registrate aquí</Link></p>

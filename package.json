@@ -7,6 +7,9 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.1.3",
+    "disqus-react": "^1.1.3",
+    "eslint": "^8.15.0",
+    "eslint-config-react-app": "6",
     "firebase": "^9.6.11",
     "firebase-tools": "^10.7.1",
     "formik": "^2.2.9",
@@ -22,7 +25,7 @@
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.5",
-    "sweetalert2": "^11.4.10",
+    "sweetalert2": "^11.4.13",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
