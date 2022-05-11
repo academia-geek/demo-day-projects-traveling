@@ -32,6 +32,8 @@ bode {
 }
 .div-ul-nav{
     margin: 0;
+    display: flex;
+    align-items: center;
 }
 .div-img-navbar{
     background-color: #ffffff;
@@ -45,9 +47,7 @@ bode {
 }
 .div-a-navbar-img{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: baseline;
+    align-items: center;
     text-decoration: none;
     color: #1b4070;
     font-size: 25px;
