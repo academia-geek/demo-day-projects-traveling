@@ -46,7 +46,6 @@ export const Detalle = () => {
       console.log(filterEstadia)
       if (filterEstadia !== undefined) {
         setDetailEstadia(filterEstadia);
-        console.log(filterEstadia)
         setImages({
           imageMain: filterEstadia.imagenes[0],
           image1: filterEstadia.imagenes[1],
@@ -70,8 +69,6 @@ export const Detalle = () => {
     iconSize: [50, 50],
     inconAnchor: [30, 60]
   })
-
-  console.log(position)
 
   return (
     <div>
@@ -225,14 +222,27 @@ export const Detalle = () => {
                 <Button className="btn-editar">Editar</Button>
                 <Button
                   onClick={() => {
-                    dispatch(deleteEstadia(detailEstadia.id));
                     Swal.fire({
-                      icon: "success",
-                      title: "Eliminado con exito",
-                      showConfirmButton: true,
-                      timer: 1500,
-                    });
-                    navigate("/");
+                      title: '¿Desea eliminar?',
+                      showDenyButton: true,
+                      denyButtonText: `Borrar`,
+                      confirmButtonText: 'Cancel',
+                    }).then((result) => {
+                      /* Read more about isConfirmed, isDenied below */
+                      if (result.isDenied) {
+
+                        dispatch(deleteEstadia(detailEstadia.id));
+
+                        Swal.fire({
+                          icon: "success",
+                          title: "Eliminado con exito",
+                          showConfirmButton: true,
+                          timer: 1500,
+                        });
+                        navigate("/");
+                      }
+                    })
+                    
                   }}
                   className="btn-delete"
                   variant="danger"
