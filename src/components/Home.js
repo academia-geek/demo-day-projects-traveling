@@ -98,7 +98,6 @@ const Home = () => {
             </div>
             <div>
                 <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652235180/3_xxtscg.png" alt=""/>
-
             </div>
         </div>
     </main>
