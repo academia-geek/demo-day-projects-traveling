@@ -1,12 +1,14 @@
 import { Formik } from "formik";
 import * as yup from "yup";
-import React from "react";
+import React, { useState } from "react";
 import { BsFacebook, BsGoogle } from 'react-icons/bs'
 import { useDispatch } from "react-redux";
 import { registerAsync } from "../Redux/actions/registerActions";
 import { ContainerForm, Error, LoginGoogleFace } from "../styles/styledComp/formsStyle";
 import { loginGoogle } from "../Redux/actions/loginActions";
 import { Link } from 'react-router-dom'
+import { fileUpload } from "../helpers/fileUpload";
+import Swal from "sweetalert2";
 
 let schema = yup.object().shape({
 	name: yup.string().required("Campo Requerido"),
@@ -18,12 +20,33 @@ let schema = yup.object().shape({
 		.required("Campo Requerido"),
 });
 
+
 const Register = () => {
 	const dispatch = useDispatch();
+
+	const [imgGuia, setImgGuia] = useState('')
 
 	const handleGoogle = () => {
 		dispatch(loginGoogle())
 	}
+
+	const handleFileChanged = (e) => {
+		const file = e.target.files[0];
+		fileUpload(file)
+			.then((response) => {
+				console.log(response);
+				Swal.fire({
+					icon: 'success',
+					title: 'Imagen subida',
+					showConfirmButton: false,
+					timer: 1500
+				})
+				setImgGuia(response)
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
 
 	return (
 		<ContainerForm>
@@ -39,9 +62,8 @@ const Register = () => {
 					guia: false,
 				}}
 				validationSchema={schema}
-				onSubmit={(values) => {
-					dispatch(registerAsync(values));
-					console.log(values);
+				onSubmit={({ name, password, password2, email, host, guia }) => {
+					dispatch(registerAsync({ name, password, password2, email, host, guia, imgGuia }));
 				}}
 			>
 				{({
@@ -124,6 +146,20 @@ const Register = () => {
 							/>
 							<strong> Ser Guia </strong>
 						</label>
+
+						{values.guia ? <div>
+							<p style={{ marginTop: '10px' }}>Imagen de perfil</p>
+							<input
+								type="file"
+								name="imgGuia"
+								onChange={handleFileChanged}
+								onBlur={handleBlur}
+								value={values.imgGuia}
+							/>
+						</div>
+
+
+							: null}
 
 						<button type="submit">
 							Registrarse
