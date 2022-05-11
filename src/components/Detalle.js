@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { deleteEstadia, listEstadiaAsync } from '../Redux/actions/estadiaAction';
 import ListarEstadias from './ListarEstadias';
-import '../styles/CSS/Detalle.css'
+import '../styles/css/Detalle.css'
 import 'leaflet/dist/leaflet.css'
 import {
   MapContainer,

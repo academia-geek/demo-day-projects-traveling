@@ -11,3 +11,7 @@ export const typeEstadia = {
     search: 'search',
     delete: "delete"
 }
+
+export const typeGuias = {
+    list: "list"
+}
