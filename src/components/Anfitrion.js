@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/css/Anfitrion.css'
+import '../styles/CSS/Anfitrion.css'
 
 
 const Anfitrion = () => {
