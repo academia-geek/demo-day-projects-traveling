@@ -130,8 +130,13 @@ bode {
     padding: 0 5%;
 }
 .img-info-1{
-    width: 90%;
+    width: 120%;
     border-radius: 10px;
+    
+}
+
+.div-info-1-descripcion {
+    margin-left: 100px;
 }
 
 .btn-vamos{
