@@ -54,6 +54,11 @@ bode {
     padding: 5px 10px;
 }
 
+.div-a-navbar-img p {
+    margin: 0;
+    padding: 0;
+}
+
 .ul-opciones {
     display: flex;
     flex-direction: row;
