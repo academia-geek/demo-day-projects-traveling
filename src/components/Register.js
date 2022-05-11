@@ -60,10 +60,11 @@ const Register = () => {
 					email: "",
 					host: false,
 					guia: false,
+					contacto: '',
 				}}
 				validationSchema={schema}
-				onSubmit={({ name, password, password2, email, host, guia }) => {
-					dispatch(registerAsync({ name, password, password2, email, host, guia, imgGuia }));
+				onSubmit={({ name, password, password2, email, host, guia, contacto }) => {
+					dispatch(registerAsync({ name, password, password2, email, host, guia, imgGuia, contacto }));
 				}}
 			>
 				{({
@@ -147,14 +148,23 @@ const Register = () => {
 							<strong> Ser Guia </strong>
 						</label>
 
-						{values.guia ? <div>
-							<p style={{ marginTop: '10px' }}>Imagen de perfil</p>
+						{values.guia ? <div style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+							<p>Imagen de perfil</p>
 							<input
 								type="file"
 								name="imgGuia"
 								onChange={handleFileChanged}
 								onBlur={handleBlur}
 								value={values.imgGuia}
+							/>
+
+							<input
+								type="number"
+								name="contacto"
+								placeholder="Numero de contacto"
+								onChange={handleChange}
+								onBlur={handleBlur}
+								value={values.contacto}
 							/>
 						</div>
 
