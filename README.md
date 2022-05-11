@@ -13,7 +13,7 @@ You'll need [Node.js](https://nodejs.org/en/) installed
 
 - Run `$ npm start` 
 - Visit `http://localhost:3000`
-- 
+
 ## Style Guide
 
 - Font Family: Rubik
