@@ -1,3 +1,19 @@
+#Traveling
+
+Traveling will help you find that place you want in the middle of nature in a simple, reliable and safe way and if you are a host you can also publish your places so that others can see them and make a reservation
+
+## Set up
+
+You'll need [Node.js](https://nodejs.org/en/) installed
+
+- Clone the repository 
+- Run `$ npm install` to install the dependencies 
+
+## Up and running 
+
+- Run `$ npm start` 
+- Visit `http://localhost:3000`
+- 
 ## Style Guide
 
 - Font Family: Rubik
