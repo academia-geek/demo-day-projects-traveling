@@ -47,7 +47,7 @@ bode {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: baseline;
     text-decoration: none;
     color: #1b4070;
     font-size: 25px;
@@ -95,7 +95,7 @@ bode {
 
 .input-buscar{
     margin: 0px 10px;
-    padding: 7px;
+    padding: 5px;
     border-radius: 20px;
     border: none;
     width: 100px;
