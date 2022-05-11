@@ -91,6 +91,7 @@ const NavBar = () => {
                         <li><a href="default.asp">Descubre</a></li>
                         <li><a href="news.asp">Experiencias</a></li>
                         <li><Link to="/estadias">Estadias</Link></li>
+                        <li><Link to="/anfitrion">Se anfitrion</Link></li>
                         <li><a href="contact.asp">Contactanos</a></li>
 
                         { host === true ? <li onClick={agregar}><a href="#">Agregar Estadía</a></li> : null}

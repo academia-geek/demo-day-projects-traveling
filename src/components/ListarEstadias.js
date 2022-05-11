@@ -16,7 +16,7 @@ const ListarEstadias = () => {
     
     return (
     <div>
-      <NavBar/>
+
         <div>
         <Container className="container-product">
           <div className="card-columns">

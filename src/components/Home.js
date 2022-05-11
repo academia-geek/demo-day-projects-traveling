@@ -10,7 +10,7 @@ const Home = () => {
         <NavBar/>
         <main>
         <div>
-            <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651108308/paisaje2_cd608u.jpg" alt="" class="banner-nav" />
+            <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652242717/paisaje3_rhzxx8.jpg" alt="" class="banner-nav" />
         </div>
         <div class="div-info-1">
             <div>
@@ -89,16 +89,16 @@ const Home = () => {
 
         <div class="div-destinos">
             <div>
-                <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651118403/3_bgdfyd.png" alt=""/>
-                <p>Huila</p>
+                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652235136/1_nsvxuk.png" alt=""/>
+
             </div>
             <div>
-                <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651118374/1_dn9ee8.png" alt=""/>
-                <p>Tolima</p>
+                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652235137/4_rmnwro.png" alt=""/>
+
             </div>
             <div>
-                <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651118373/2_a9zsqg.png" alt=""/>
-                <p>Santander</p>
+                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652235180/3_xxtscg.png" alt=""/>
+
             </div>
         </div>
     </main>
