@@ -6,9 +6,7 @@ export const ContainerForm = styled.div`
     margin: 50px;
     /* background-color: ; */
 
-    img.logoImg{
-        width: 100px;
-    }
+
 
     form{
         display: flex;
@@ -20,23 +18,13 @@ export const ContainerForm = styled.div`
         input{
             padding: 6px 15px;
             border: 1px solid grey;
-            border-radius: 4px;
+            border-radius: 10px;
         }
         input:focus{
             /* outline: 2px solid #F0AD64; */
         }
 
-        button{
-            /* background: #7fe881; */
-            /* border: 1px solid #F0AD64; */
-            padding: 10px 30px;
-            border-radius: 4px;
-            margin: 20px;
-            cursor: pointer;
-        }
-        button:hover{
-            /* background:  */
-        }
+
     }
 
     p{
@@ -54,19 +42,23 @@ export const LoginGoogleFace = styled.div`
     
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 5px;
+    padding: 10px 20px;
+    margin: 5px;
     color: #3b5998;
 
     .iconContainer{
-        width: 180px;
-        border-radius: 4px;
+        width: 250px;
+        border-radius: 10px;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         cursor: pointer;
         transition: .3s;
+
+        padding: 10px 20px;
 
         p{
             font-size: 15px;
