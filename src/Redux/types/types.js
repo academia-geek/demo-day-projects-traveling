@@ -14,3 +14,7 @@ export const typeEstadia = {
     delete: "delete",
     filterPrice: 'Filter Price',
 }
+
+export const typeGuias = {
+    list: "list"
+}

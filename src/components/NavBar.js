@@ -38,16 +38,11 @@ const NavBar = () => {
 
         return (
             <>
-                <Button variant="primary" onClick={handleShow} className="me-2" style={{
-                    backgroundColor: "#488FB1",
-                    border: "none",
-                    borderRadius: "20px",
-                    width: "100px",
-                    padding: "5px",
-                    margin: "0px 10px",
-                    color: "white"
-                }}>
-                    Perfil
+                <Button variant="primary" onClick={handleShow} className="me-2 btn-sesion" style={{backgroundColor: "#488FB1",
+                border: "none",
+                borderRadius: "50%",
+                color: "white"}}>
+                    <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652290251/666201_mowcru.png" className='perfil'/>
                 </Button>
                 <Offcanvas show={show} onHide={handleClose} {...props} style={{
                     display: "flex",
@@ -108,13 +103,10 @@ const NavBar = () => {
 
                 <div className="div-ul-nav">
                     <ul className="ul-opciones">
-                        <li><a href="default.asp">Descubre</a></li>
-                        <li><a href="news.asp">Experiencias</a></li>
                         <li><Link to="/estadias">Estadias</Link></li>
-                        <li><Link to="/anfitrion">Se anfitrion</Link></li>
-                        <li><a href="contact.asp">Contactanos</a></li>
-
-                        {host === true ? <li onClick={agregar}><a href="#">Agregar Estadía</a></li> : null}
+                        <li><Link to="/nosotros">Nosotros</Link></li>
+                        <li><Link to="/guias">Guías</Link></li>
+                        { host === true ? <li onClick={agregar}><a href="#">Agregar Estadía</a></li> : null}
                     </ul>
                 </div>
                 <div className="div-buscar">

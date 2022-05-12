@@ -25,13 +25,18 @@ bode {
     margin: 0;
 
 }
-
+.div-ul-nav{
+    margin: 0;
+    padding: 0;
+}
 .img-home{
     width: 50px;
     margin-right: 5px;
 }
 .div-ul-nav{
     margin: 0;
+    display: flex;
+    align-items: center;
 }
 .div-img-navbar{
     background-color: #ffffff;
@@ -45,13 +50,39 @@ bode {
 }
 .div-a-navbar-img{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: baseline;
+    align-items: center;
     text-decoration: none;
     color: #1b4070;
     font-size: 25px;
     padding: 5px 10px;
+}
+
+.div-a-navbar-img p {
+    margin: 0;
+    padding: 0;
+}
+
+.btn-sesion{
+    border-radius: 50%;
+    padding: 0;
+}
+
+.perfil{
+    width: 25px;
+    border-radius: 50%;
+    margin: 2px 0;
+    padding: 0;
+}
+
+.perfil-2{
+    width: 30px;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.div-sesion{
+    background-color:#488FB1;
+    border-radius: 50%;
 }
 
 .ul-opciones {
@@ -60,11 +91,14 @@ bode {
     justify-content: space-evenly;
     align-items: center;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 .ul-opciones>li{
     margin: 10px;
     transition: 0.3s;
 }
+
 
 .ul-opciones>li>a{
     padding: 2px;
@@ -76,8 +110,6 @@ bode {
 .ul-opciones>li>a:hover{
     background-color: #488FB1;
     border-radius: 25px;
-
-    
 }
 
 .ul-opciones>li:hover{
@@ -95,14 +127,14 @@ bode {
 
 .input-buscar{
     margin: 0px 10px;
-    padding: 5px;
+    padding: 0px 5px;
     border-radius: 20px;
     border: none;
     width: 100px;
 }
 
 .img-buscar{
-    width: 30px;
+    width: 35px;
     background-color: #488FB1;
     border-radius: 50%;
     padding: 3px;

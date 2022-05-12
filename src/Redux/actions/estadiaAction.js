@@ -34,6 +34,7 @@ export const listEstadiaAsync = () => {
     querySnapshot.forEach((doc) => {
       let data = doc.data();
       data["id"] = doc.id;
+      
       estadias.push({
         ...data,
       });
@@ -101,6 +102,3 @@ export const deleteSincrono = (estadia) => {
     payload: estadia,
   };
 }
-
-
-

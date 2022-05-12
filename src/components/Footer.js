@@ -11,6 +11,19 @@ const Footer = () => {
             alt=""
             width="70px"
           />
+          <p>Traveling 2022</p>
+        </div>
+        <div className="div-contactos">
+          <h3>Contacto</h3>
+          <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652320526/email_pgsj64.png" className="icon-contacto" />traveling@gmail.com</p>
+          <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652320522/phone_ms7wom.png" className="icon-contacto" />+57 3003214567</p>
+
+        </div>
+        <div className="div-contactos">
+        <h3>Desarrolladores</h3>
+          <p>Kevin Torres</p>
+          <p>Brahian Alzate</p>
+          <p>Steven Gonzalez</p>
         </div>
         <div className="div-social">
           <img
