@@ -89,6 +89,7 @@ export const Detalle = () => {
       const reserva = {
         date1, 
         date2, 
+        img: images.imageMain,
         nombreEstadia: detailEstadia.nombre, 
         ubicacion: detailEstadia.ubicacion
       }

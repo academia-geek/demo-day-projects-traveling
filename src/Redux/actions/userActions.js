@@ -24,6 +24,7 @@ export const reservarAsync = (name, email, reserva) => {
             await updateDoc(documentRef, { reserva })
                 .then(resp => {
                     dispatch(reservarSinc(reserva))
+                    dispatch(listReservasAsync(email))
                     Swal.fire({
                         width: 400,
                         icon: 'success',
@@ -37,11 +38,11 @@ export const reservarAsync = (name, email, reserva) => {
     }
 }
 
-export const reservarSinc = ({ date1, date2, nameEstadia, ubicacion }) => {
+export const reservarSinc = ({ date1, date2, img, nameEstadia, ubicacion }) => {
     return {
         type: types.reserva,
         payload: {
-            date1, date2, nameEstadia, ubicacion
+            date1, date2, nameEstadia, img, ubicacion
         }
     }
 }
