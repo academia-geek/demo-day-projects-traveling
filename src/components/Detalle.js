@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { deleteEstadia, listEstadiaAsync } from '../Redux/actions/estadiaAction';
 import ListarEstadias from './ListarEstadias';
+import { BsArrowBarLeft } from 'react-icons/bs'
 import '../styles/CSS/Detalle.css'
 import 'leaflet/dist/leaflet.css'
 import {
   MapContainer,
   TileLayer,
   Marker,
-  Popup
 } from 'react-leaflet';
 import { Icon } from 'leaflet';
+import UsePerfil from '../hooks/usePerfil';
+import { reservarAsync } from '../Redux/actions/userActions';
 
 export const Detalle = () => {
   const { estadias } = useSelector((state) => state.estadias);
+  const { host } = useSelector((store) => store.login)
 
   const navigate = useNavigate();
 
@@ -43,7 +46,6 @@ export const Detalle = () => {
     if (estadias) {
 
       const filterEstadia = estadias.find((product) => product.id === id);
-      console.log(filterEstadia)
       if (filterEstadia !== undefined) {
         setDetailEstadia(filterEstadia);
         setImages({
@@ -70,8 +72,35 @@ export const Detalle = () => {
     inconAnchor: [30, 60]
   })
 
+  const user = UsePerfil()
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    const date1 = e.target[0].value;
+    const date2 = e.target[1].value;
+    if (date2 === '') {
+      Swal.fire({
+        icon: 'error',
+        text: 'Para reservar necesitas seleccionar las fechas',
+        showConfirmButton: false,
+        timer: 2000
+      })
+    } else {
+      const reserva = {
+        date1, 
+        date2, 
+        img: images.imageMain,
+        nombreEstadia: detailEstadia.nombre, 
+        ubicacion: detailEstadia.ubicacion
+      }
+      dispatch(reservarAsync(user.nombre, user.correo, reserva))
+      // console.log(user.nombre, user.correo, reserva)
+    }
+  }
+
   return (
     <div>
+      <button className='btn-regresar' onClick={() => navigate(-1)}> <BsArrowBarLeft className='icon-arrow' />Regresar</button>
       <div className="div-main-detalle">
         <div className="div-fotos-detalle">
           <div xs={1} className="col-img">
@@ -125,6 +154,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652152004/2460762_vo0spj.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>Dormitorios</p>
             </div>
@@ -132,6 +162,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652152050/2460781_oemq4w.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>Baños</p>
             </div>
@@ -139,6 +170,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652151915/857681_eoie5m.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>Cocina</p>
             </div>
@@ -146,6 +178,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652151862/93158_zxu3cp.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>Wifi</p>
             </div>
@@ -153,6 +186,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652152908/2804212_gobsly.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>Parqueadero</p>
             </div>
@@ -160,6 +194,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652152126/2460768_u9rrjh.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>TV</p>
             </div>
@@ -167,6 +202,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652152250/2838912_ql1cpp.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>GPS</p>
             </div>
@@ -174,6 +210,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652153122/4671557_u56qfe.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>Guia</p>
             </div>
@@ -187,69 +224,75 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652154128/3439380_gleey4.png"
                 className="icon-max-person"
+                alt=""
               />
               <p>{detailEstadia.maxPersonas}</p>
             </div>
             <hr />
             <div className="div-reservas">
               <div>
-                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652158008/2460737_oqkdgr.png" />
+                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652158008/2460737_oqkdgr.png" alt="" />
                 <h3>Reserva</h3>
               </div>
-              <div className="div-fechas">
-                <div>
-                  <label>Fecha de llegada</label>
+              <Form onSubmit={handleSubmit} className="form-fechas">
+
+                <label>Fecha de llegada
                   <input type="date" />
-                </div>
-                <div>
-                  <label>Fecha de salida</label>
+                </label>
+
+                <label>Fecha de salida
                   <input type="date" />
-                </div>
-              </div>
+                </label>
+
+                {/* <p>{parseInt(detailEstadia.precio) + 100000}</p> */}
+                <button className='add-reserva-button' type="submit">Reservar</button>
+              </Form>
             </div>
 
             <hr />
             <div className="div-anfitrion">
               <div>
-                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652156422/7440832_iebbfe.png" />
+                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652156422/7440832_iebbfe.png" alt="" />
               </div>
               <div>
                 <h3>Anfitrion</h3>
                 <p>{detailEstadia.propietario}</p>
                 <p>{detailEstadia.contacto}</p>
               </div>
-              <div className="div-btns">
-                <Button className="btn-editar">Editar</Button>
-                <Button
-                  onClick={() => {
-                    Swal.fire({
-                      title: '¿Desea eliminar?',
-                      showDenyButton: true,
-                      denyButtonText: `Borrar`,
-                      confirmButtonText: 'Cancel',
-                    }).then((result) => {
-                      /* Read more about isConfirmed, isDenied below */
-                      if (result.isDenied) {
+              {host ?
+                <div className="div-btns">
+                  <Button className="btn-editar">Editar</Button>
+                  <Button
+                    onClick={() => {
+                      Swal.fire({
+                        title: '¿Desea eliminar?',
+                        showDenyButton: true,
+                        denyButtonText: `Borrar`,
+                        confirmButtonText: 'Cancel',
+                      }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isDenied) {
 
-                        dispatch(deleteEstadia(detailEstadia.id));
+                          dispatch(deleteEstadia(detailEstadia.id));
 
-                        Swal.fire({
-                          icon: "success",
-                          title: "Eliminado con exito",
-                          showConfirmButton: true,
-                          timer: 1500,
-                        });
-                        navigate("/");
-                      }
-                    })
-                    
-                  }}
-                  className="btn-delete"
-                  variant="danger"
-                >
-                  Eliminar
-                </Button>
-              </div>
+                          Swal.fire({
+                            icon: "success",
+                            title: "Eliminado con exito",
+                            showConfirmButton: true,
+                            timer: 1500,
+                          });
+                          navigate("/");
+                        }
+                      })
+
+                    }}
+                    className="btn-delete"
+                    variant="danger"
+                  >
+                    Eliminar
+                  </Button>
+                </div>
+                : null}
             </div>
             <hr />
             <MapContainer

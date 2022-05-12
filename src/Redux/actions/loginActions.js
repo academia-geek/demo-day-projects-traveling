@@ -1,6 +1,7 @@
 import { types } from "../types/types"
 import { getAuth, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
 import { facebook, google } from "../../firebase/firebaseConfig"
+import { saveRegisterData } from "./registerActions"
 
 const auth = getAuth()
 
@@ -36,7 +37,6 @@ export const loginGoogle = () => {
     signInWithPopup(auth, google)
         .then(resp => {
             console.log(resp)
-            console.log(resp.user)
         })
         .catch(error => {
             console.log(error)
