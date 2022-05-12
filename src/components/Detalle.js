@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Carousel } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -14,6 +14,7 @@ import {
   Marker,
 } from 'react-leaflet';
 import { Icon } from 'leaflet';
+import EditarEstadia from './EditarEstadia';
 import UsePerfil from '../hooks/usePerfil';
 import { reservarAsync } from '../Redux/actions/userActions';
 
@@ -36,11 +37,14 @@ export const Detalle = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  // const editar = (id) => {
-  //   const getEstadia = estadias.find((p) => p.id === id);
-  //   setModal(true);
-  //   setEnviarDatosModal(getEstadia);
-  // };
+  const [modal, setModal] = useState(false);
+  const [enviarDatosModal, setEnviarDatosModal] = useState([]);
+
+  const editar = (id) => {
+    const getEstadia = estadias.find((p) => p.id === id);
+    setModal(true);
+    setEnviarDatosModal(getEstadia);
+  };
 
   useEffect(() => {
     if (estadias) {
@@ -71,6 +75,12 @@ export const Detalle = () => {
     iconSize: [50, 50],
     inconAnchor: [30, 60]
   })
+
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
 
   const user = UsePerfil()
 
@@ -117,14 +127,41 @@ export const Detalle = () => {
             </button>
           </div>
 
-          <div className="img-main-detallle">
-            <img
-              className="img-detalle"
-              src={images.imageMain}
-              alt="imgprincipal"
-            />
-          </div>
+      <div style={{marginTop: "25px"}}>
+      <Carousel activeIndex={index} onSelect={handleSelect} style={{margin: "auto", width: "90%"}} >
+      <Carousel.Item interval={1000}>
+        <img
+          className="d-block w-100 img-carusel"
+          src={images.imageMain}
+          alt="First slide"
+        />
+        <Carousel.Caption>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item interval={500}>
+        <img
+          className="d-block w-100 img-carusel"
+          src={images.image1}
+          alt="Second slide"
+        />
 
+        <Carousel.Caption>
+        </Carousel.Caption>
+      </Carousel.Item >
+      <Carousel.Item >
+        <img
+          className="d-block w-100 img-carusel"
+          src={images.image2}
+          alt="Third slide"
+        /> 
+
+        <Carousel.Caption>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+    </Carousel>
+    </div>
+      <div className="div-main-detalle">
           <div>
             <h2 className="fs-5 fw-bold">{detailEstadia.nombre}</h2>
             <h4 className="stylBlue">
@@ -144,7 +181,7 @@ export const Detalle = () => {
               <span>{detailEstadia.descripcion}</span>
             </p>
           </div>
-        </div>
+        
 
         <div className="div-servicio">
           <h3>Servicios</h3>
@@ -259,9 +296,10 @@ export const Detalle = () => {
                 <p>{detailEstadia.propietario}</p>
                 <p>{detailEstadia.contacto}</p>
               </div>
+
               {host ?
-                <div className="div-btns">
-                  <Button className="btn-editar">Editar</Button>
+                <div className="div-btns">   
+                  <Button className="btn-editar" onClick={() => editar(detailEstadia.id)}>Editar</Button>
                   <Button
                     onClick={() => {
                       Swal.fire({
@@ -293,7 +331,9 @@ export const Detalle = () => {
                   </Button>
                 </div>
                 : null}
+                
             </div>
+                  {modal === true ? <EditarEstadia modal={enviarDatosModal} /> : ""}
             <hr />
             <MapContainer
               center={position === undefined ? [3.513, -73.147] : [position.latitude, position.longitud]}

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import '../styles/CSS/Home.css'
+import { Link } from 'react-router-dom'
 import Navbarlanding from './Navbarlanding'
 
 const Home = () => {

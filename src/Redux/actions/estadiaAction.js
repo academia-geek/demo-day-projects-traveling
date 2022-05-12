@@ -1,7 +1,8 @@
 
 // Agregar Estadia
 
-import { addDoc, collection, getDocs, doc, deleteDoc } from "firebase/firestore";
+import { addDoc, collection, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore";
+import Swal from "sweetalert2";
 import { dataBase } from "../../firebase/firebaseConfig";
 import { typeEstadia } from "../types/types";
 
@@ -47,6 +48,34 @@ export const listSync = (estadias) => {
   return {
     type: typeEstadia.list,
     payload: estadias,
+  };
+};
+
+//------------Editar Estadia---------
+
+export const editAsync = (id, contentAll) => {
+  return async (dispatch) => {
+   await updateDoc(doc(dataBase, "estadias", id), contentAll)
+   .then(p => {
+    dispatch(editSyn(contentAll));
+    dispatch(listEstadiaAsync());
+    Swal.fire({
+      icon: "success",
+      title: "Actualizado con exito",
+      showConfirmButton: true,
+      timer: 1500,
+   });
+   })
+   .cath(e => {
+     console.log(e)
+   })
+  };
+};
+
+export const editSyn = (contentAll) => {
+  return {
+    type: typeEstadia.edit,
+    payload: contentAll,
   };
 };
 

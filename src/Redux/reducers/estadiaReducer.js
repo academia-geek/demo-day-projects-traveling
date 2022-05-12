@@ -21,6 +21,10 @@ export const estadiaReducer = (state = initialState, action) => {
                     || es.ubicacion.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase())
                 )]
             };
+        case typeEstadia.edit:
+            return {
+                ...state,
+            };
         case typeEstadia.delete:
             return {
                 estadias: state.estadias.filter((p) => p.id !== action.payload),
