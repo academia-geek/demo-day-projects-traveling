@@ -9,7 +9,7 @@ import { loginGoogle } from "../Redux/actions/loginActions";
 import { Link } from 'react-router-dom'
 import { fileUpload } from "../helpers/fileUpload";
 import Swal from "sweetalert2";
-import '../styles/CSS/Login.css'
+import '../styles/css/Login.css'
 
 let schema = yup.object().shape({
 	name: yup.string().required("Campo Requerido"),

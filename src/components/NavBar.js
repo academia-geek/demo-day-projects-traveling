@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import '../styles/CSS/styleNavBar.css'
+import '../styles/css/styleNavBar.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
 import AddEstadia from './AddEstadia'

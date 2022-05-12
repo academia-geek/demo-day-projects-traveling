@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/CSS/Home.css'
+import '../styles/css/Home.css'
 import { Link } from 'react-router-dom'
 import Navbarlanding from './Navbarlanding'
 

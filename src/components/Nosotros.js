@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./NavBar";
-import "../styles/CSS/Nosotros.css";
+import "../styles/css/Nosotros.css";
 
 const Nosotros = () => {
   return (

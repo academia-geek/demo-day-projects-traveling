@@ -21,7 +21,7 @@ export const ContainerForm = styled.div`
             border-radius: 10px;
         }
         input:focus{
-            /* outline: 2px solid #F0AD64; */
+            outline: 2px solid #488FB1;
         }
 
 
@@ -30,6 +30,10 @@ export const ContainerForm = styled.div`
     p{
         a{
             color: #0E7184;
+            transition: .3s;
+        }
+        a:hover{
+            color: #fff;
         }
     }
 `

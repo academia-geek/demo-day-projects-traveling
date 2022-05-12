@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listGuiaAsync } from '../Redux/actions/guiasAction'
-import '../styles/CSS/Guias.css'
+import '../styles/css/Guias.css'
 
 const Guias = () => {
 
