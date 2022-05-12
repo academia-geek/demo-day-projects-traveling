@@ -6,13 +6,13 @@ import AddEstadia from './AddEstadia'
 import { Button, Offcanvas } from 'react-bootstrap'
 import UsePerfil from '../hooks/usePerfil'
 import { searchAsync } from '../Redux/actions/estadiaAction'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
 
     const user = UsePerfil()
     const dispatch = useDispatch()
     const [modal, setModal] = useState(false)
-
 
     const agregar = () => {
         setModal(true)
@@ -92,7 +92,8 @@ const NavBar = () => {
                     <ul className="ul-opciones">
                         <li><a href="default.asp">Descubre</a></li>
                         <li><a href="news.asp">Experiencias</a></li>
-                        <li><a href="about.asp">Estadias</a></li>
+                        <li><Link to="/estadias">Estadias</Link></li>
+                        <li><Link to="/anfitrion">Se anfitrion</Link></li>
                         <li><a href="contact.asp">Contactanos</a></li>
 
                         { host === true ? <li onClick={agregar}><a href="#">Agregar Estadía</a></li> : null}
