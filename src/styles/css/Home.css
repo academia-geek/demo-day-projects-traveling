@@ -154,7 +154,8 @@ bode {
     justify-content: space-evenly;
     align-items: center;
     margin-top: 80px;
-    padding: 0px 5%;
+    padding: 30px 5%;
+    background-color: #e7e7e7;
 }
 .seccion-img {
     display: flex;
@@ -164,10 +165,8 @@ bode {
 }
 .seccion-img img {
 
-    border-radius: 20px;
-    background: #e0e0e0;
-    box-shadow: 15px 15px 30px #bebebe,
-                -15px -15px 30px #ffffff;
+    border-radius: 15px 15px 0px 0px;
+
    }
 /* .seccion-img>img{
     border-radius: 10px;
@@ -178,7 +177,7 @@ bode {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    margin-top: 50px;
+    margin: 60px 0;
 }
 .subdiv-publica {
     border-radius: 15px;
@@ -219,7 +218,7 @@ bode {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin: 100px;
+    margin: 50px 100px;
 }
 .testimonio{
     width: 40%;
@@ -230,7 +229,7 @@ bode {
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
-    padding: 20px 40px;
+    padding: 30px 40px;
 }
 .img-feliz {
     border-radius: 50%;
@@ -383,3 +382,26 @@ ul, ol {
     transform: scale(0.95);
    }
   
+   .fauna, .flora, .cultura, .gastro{
+       border-radius: 0px 0px 15px 15px;
+   }
+
+   .fauna{
+       background-color: #1b4070;
+       color: white;
+   }
+   .flora{
+        background-color: #cb49df;
+   }
+   .cultura{
+       background-color: #e5d13c;
+   }
+   .gastro{
+       background-color: #725334;
+
+   }
+
+   .fauna:hover, .flora:hover, .cultura:hover, .gastro:hover{
+    background-color:#488FB1;
+    color: black;
+   }
