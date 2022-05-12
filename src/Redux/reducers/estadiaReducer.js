@@ -4,7 +4,7 @@ const initialState = {
     estadias: [],
 }
 
-export const estadiaReducer = ( state = initialState, action ) => {
+export const estadiaReducer = (state = initialState, action) => {
     switch (action.type) {
         case typeEstadia.add:
             return {
@@ -16,16 +16,23 @@ export const estadiaReducer = ( state = initialState, action ) => {
             };
         case typeEstadia.search:
             return {
-                estadias: [...state.estadias.filter(es => es.nombre.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase()) || es.descripcion.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase()))]
+                estadias: [...state.estadias.filter(es => es.nombre.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase())
+                    || es.descripcion.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase())
+                    || es.ubicacion.toLocaleLowerCase().includes(action.payload.toLocaleLowerCase())
+                )]
             };
         case typeEstadia.edit:
             return {
                 ...state,
             };
         case typeEstadia.delete:
-                return {
-                  estadias: state.estadias.filter((p) => p.id !== action.payload),
-                };
+            return {
+                estadias: state.estadias.filter((p) => p.id !== action.payload),
+            };
+        case typeEstadia.filterPrice:
+            return {
+                estadias: [...state.estadias.filter(es => es.precio < action.payload)]
+            };
         default:
             return state;
     }

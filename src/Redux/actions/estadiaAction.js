@@ -98,6 +98,23 @@ export const searchSync = (search) => {
   }
 }
 
+export const filterPriceAsync = price => {
+  return async dispatch => {
+    if (price === 'Todos los precios') {
+      dispatch(listEstadiaAsync());
+    } else {
+      dispatch(filterPriceSync(price))
+    };
+  };
+}
+
+export const filterPriceSync = (price) => {
+  return {
+    type: typeEstadia.filterPrice,
+    payload: price
+  }
+}
+
 // delete estadia -------------------------------
 
 export const deleteEstadia = (id) => {
@@ -114,4 +131,3 @@ export const deleteSincrono = (estadia) => {
     payload: estadia,
   };
 }
-

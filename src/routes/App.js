@@ -3,6 +3,7 @@ import { collection, getDocs } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from '../components/Home'
 import Login from '../components/Login'
 import Register from '../components/Register'
 import { dataBase } from '../firebase/firebaseConfig'
@@ -26,7 +27,7 @@ const App = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsLogged(true)
-        getUserLogged(user.displayName, user.email) 
+        getUserLogged(user.displayName, user.email)
       } else {
         setIsLogged(false)
       }
@@ -45,18 +46,18 @@ const App = () => {
 
     const actualUser = user.find(u => u.email === email && u.name === name)
 
-    if (actualUser && actualUser.host){
+    if (actualUser && actualUser.host) {
       setIsHost(true);
     } else {
       setIsHost(false);
     };
 
-    if (actualUser && actualUser.guia){
+    if (actualUser && actualUser.guia) {
       setIsGuia(true);
     } else {
       setIsGuia(false);
     };
-    
+
   };
 
   if (checking) {
@@ -76,6 +77,12 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Routes>
+          <Route path="/home" element={
+            <PublicRoutes isAuth={isLogged}>
+              <Home />
+            </PublicRoutes>
+          } />
+
           <Route path="/login" element={
             <PublicRoutes isAuth={isLogged}>
               <Login />
@@ -90,7 +97,7 @@ const App = () => {
 
           <Route path="/*" element={
             <PrivateRoutes isAuth={isLogged}>
-              <DashBoardRoutes isHost={isHost}/>
+              <DashBoardRoutes isHost={isHost} />
             </PrivateRoutes>
           } />
         </Routes>
