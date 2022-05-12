@@ -17,6 +17,9 @@ import { Icon } from 'leaflet';
 
 export const Detalle = () => {
   const { estadias } = useSelector((state) => state.estadias);
+  const { host } = useSelector((store) => store.login)
+
+  console.log(host)
 
   const navigate = useNavigate();
 
@@ -72,7 +75,7 @@ export const Detalle = () => {
 
   return (
     <div>
-      <button className='btn-regresar' onClick={() => navigate(-1)}> <BsArrowBarLeft className='icon-arrow'/>Regresar</button>
+      <button className='btn-regresar' onClick={() => navigate(-1)}> <BsArrowBarLeft className='icon-arrow' />Regresar</button>
       <div className="div-main-detalle">
         <div className="div-fotos-detalle">
           <div xs={1} className="col-img">
@@ -228,38 +231,40 @@ export const Detalle = () => {
                 <p>{detailEstadia.propietario}</p>
                 <p>{detailEstadia.contacto}</p>
               </div>
-              <div className="div-btns">
-                <Button className="btn-editar">Editar</Button>
-                <Button
-                  onClick={() => {
-                    Swal.fire({
-                      title: '¿Desea eliminar?',
-                      showDenyButton: true,
-                      denyButtonText: `Borrar`,
-                      confirmButtonText: 'Cancel',
-                    }).then((result) => {
-                      /* Read more about isConfirmed, isDenied below */
-                      if (result.isDenied) {
+              {host ?
+                <div className="div-btns">
+                  <Button className="btn-editar">Editar</Button>
+                  <Button
+                    onClick={() => {
+                      Swal.fire({
+                        title: '¿Desea eliminar?',
+                        showDenyButton: true,
+                        denyButtonText: `Borrar`,
+                        confirmButtonText: 'Cancel',
+                      }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isDenied) {
 
-                        dispatch(deleteEstadia(detailEstadia.id));
+                          dispatch(deleteEstadia(detailEstadia.id));
 
-                        Swal.fire({
-                          icon: "success",
-                          title: "Eliminado con exito",
-                          showConfirmButton: true,
-                          timer: 1500,
-                        });
-                        navigate("/");
-                      }
-                    })
+                          Swal.fire({
+                            icon: "success",
+                            title: "Eliminado con exito",
+                            showConfirmButton: true,
+                            timer: 1500,
+                          });
+                          navigate("/");
+                        }
+                      })
 
-                  }}
-                  className="btn-delete"
-                  variant="danger"
-                >
-                  Eliminar
-                </Button>
-              </div>
+                    }}
+                    className="btn-delete"
+                    variant="danger"
+                  >
+                    Eliminar
+                  </Button>
+                </div>
+                : null}
             </div>
             <hr />
             <MapContainer
