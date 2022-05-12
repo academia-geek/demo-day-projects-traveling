@@ -2,7 +2,9 @@ export const types = {
     login: 'Login',
     logout: 'Logout',
     register: 'Register',
-    host: 'Is Host?'
+    host: 'Is Host?',
+    reserva: 'Reserva Estadia',
+    listReserva: 'Listar Reservas'
 }
 
 export const typeEstadia = {
@@ -10,5 +12,5 @@ export const typeEstadia = {
     list: "list",
     search: 'search',
     delete: "delete",
-    filterPrice: 'Filter Price'
+    filterPrice: 'Filter Price',
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -14,12 +14,12 @@ import {
   Marker,
 } from 'react-leaflet';
 import { Icon } from 'leaflet';
+import UsePerfil from '../hooks/usePerfil';
+import { reservarAsync } from '../Redux/actions/userActions';
 
 export const Detalle = () => {
   const { estadias } = useSelector((state) => state.estadias);
   const { host } = useSelector((store) => store.login)
-
-  console.log(host)
 
   const navigate = useNavigate();
 
@@ -46,7 +46,6 @@ export const Detalle = () => {
     if (estadias) {
 
       const filterEstadia = estadias.find((product) => product.id === id);
-      console.log(filterEstadia)
       if (filterEstadia !== undefined) {
         setDetailEstadia(filterEstadia);
         setImages({
@@ -72,6 +71,31 @@ export const Detalle = () => {
     iconSize: [50, 50],
     inconAnchor: [30, 60]
   })
+
+  const user = UsePerfil()
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    const date1 = e.target[0].value;
+    const date2 = e.target[1].value;
+    if (date2 === '') {
+      Swal.fire({
+        icon: 'error',
+        text: 'Para reservar necesitas seleccionar las fechas',
+        showConfirmButton: false,
+        timer: 2000
+      })
+    } else {
+      const reserva = {
+        date1, 
+        date2, 
+        nombreEstadia: detailEstadia.nombre, 
+        ubicacion: detailEstadia.ubicacion
+      }
+      dispatch(reservarAsync(user.nombre, user.correo, reserva))
+      // console.log(user.nombre, user.correo, reserva)
+    }
+  }
 
   return (
     <div>
@@ -209,16 +233,19 @@ export const Detalle = () => {
                 <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652158008/2460737_oqkdgr.png" alt="" />
                 <h3>Reserva</h3>
               </div>
-              <div className="div-fechas">
-                <div>
-                  <label>Fecha de llegada</label>
+              <Form onSubmit={handleSubmit} className="form-fechas">
+
+                <label>Fecha de llegada
                   <input type="date" />
-                </div>
-                <div>
-                  <label>Fecha de salida</label>
+                </label>
+
+                <label>Fecha de salida
                   <input type="date" />
-                </div>
-              </div>
+                </label>
+
+                {/* <p>{parseInt(detailEstadia.precio) + 100000}</p> */}
+                <button className='add-reserva-button' type="submit">Reservar</button>
+              </Form>
             </div>
 
             <hr />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/CSS/styleNavBar.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
@@ -7,12 +7,21 @@ import { Button, Form, Offcanvas } from 'react-bootstrap'
 import UsePerfil from '../hooks/usePerfil'
 import { filterPriceAsync, searchAsync } from '../Redux/actions/estadiaAction'
 import { Link } from 'react-router-dom'
+import ListarReservas from './ListarReservas'
+import { listReservasAsync } from '../Redux/actions/userActions'
 
 const NavBar = () => {
 
     const user = UsePerfil()
     const dispatch = useDispatch()
     const [modal, setModal] = useState(false)
+
+    useEffect(() => {
+        dispatch(listReservasAsync(user.correo))
+    }, [user.correo])
+
+    const { reservasUser } = useSelector(store => store.user)
+    console.log(reservasUser)
 
     const agregar = () => {
         setModal(true)
@@ -66,6 +75,9 @@ const NavBar = () => {
                         <h4 style={{ fontSize: "15px", textAlign: "center" }}>{user.correo}</h4>
                         <hr style={{ width: "320px", backgroundColor: "gray" }} />
                         <h4 style={{ fontSize: "16px", textAlign: "center" }}>Estadías agendadas</h4>
+
+
+                        {reservasUser !== undefined ? <ListarReservas toList={reservasUser} /> : null}
                     </Offcanvas.Body>
                 </Offcanvas>
             </>
@@ -82,7 +94,6 @@ const NavBar = () => {
     }
 
     const selectChange = ({ target }) => {
-        console.log(target.value)
         dispatch(filterPriceAsync(target.value))
     }
 
@@ -107,7 +118,7 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="div-buscar">
-                    <form onSubmit={handleSubmit} style={{display: 'flex', gap: '10px'}}>
+                    <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '10px' }}>
                         <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651107696/search-removebg-preview_dcrux1.png" alt="buscar" className="img-buscar" />
                         <input
                             type="text"
@@ -117,12 +128,12 @@ const NavBar = () => {
 
                         <Form.Select onChange={selectChange}>
                             <option>Todos los precios</option>
-                            <option value="50">Menos de 50000</option>
-                            <option value="100">Menos de 100000</option>
-                            <option value="190">Menos de 190000</option>
-                            <option value="200">Menos de 200000</option>
-                            <option value="500">Menos de 500000</option>
-                            <option value="700">Menos de 700000</option>
+                            <option value="50000">Menos de 50000</option>
+                            <option value="100000">Menos de 100000</option>
+                            <option value="150000">Menos de 150000</option>
+                            <option value="200000">Menos de 200000</option>
+                            <option value="500000">Menos de 500000</option>
+                            <option value="700000">Menos de 700000</option>
                         </Form.Select>
                     </form>
 

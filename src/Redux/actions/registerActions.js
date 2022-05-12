@@ -3,19 +3,18 @@ import { addDoc, collection } from "firebase/firestore"
 import { dataBase } from "../../firebase/firebaseConfig"
 import { types } from "../types/types"
 
-export const registerSinc = (name, email, password, host, guia, imgGuia) => {
+export const registerSinc = (name, email, host, guia, imgGuia) => {
     return {
         type: types.register,
         payload: {
-            name, email, password, host, guia, imgGuia
+            name, email, host, guia, imgGuia
         }
     }
 }
 
-const saveRegisterData = (name, password, email, host, guia, imgGuia) => {
-    console.log({name, email, host})
+export const saveRegisterData = (name, email, host, guia, imgGuia) => {
     return (dispatch) => {
-        addDoc(collection(dataBase, "users"), {name, email, host, guia, imgGuia})
+        addDoc(collection(dataBase, "users"), { name, email, host, guia, imgGuia })
             .then((resp) => {
                 console.log(resp)
             })
@@ -32,8 +31,8 @@ export const registerAsync = ({ name, password, email, host, guia, imgGuia }) =>
             .then(async ({ user }) => {
                 console.log(user)
                 await updateProfile(auth.currentUser, { displayName: name })
-                dispatch(saveRegisterData(name, password, email, host, guia, imgGuia))
-                dispatch(registerSinc(name, email, password, host, guia, imgGuia))
+                dispatch(saveRegisterData(name, email, host, guia, imgGuia))
+                dispatch(registerSinc(name, email, host, guia, imgGuia))
                 console.log('Registrado')
 
 
