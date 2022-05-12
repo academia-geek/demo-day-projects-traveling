@@ -63,8 +63,56 @@ const Home = () => {
             alt=""
           />
         </div>
+
+        <div className="div-contacto-dev">
+          <div className="card">
+              <div className="blob"><br/></div>
+                <span className="img"><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652332058/foto2_elmokt.png" className="img" /></span>
+                <div>
+                <h2>Brahian Alzate</h2>
+                </div>
+                
+                <p>
+                  <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330716/1384014_ldaflo.png"  />Brahian Alzate </p>
+                  <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330744/733609_bljs1a.png"  />Brahian-22</p>
+                  <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330790/733641_ac7g0m.png"  />31000000</p>
+                </p>
+          </div>
+
+          <div className="card">
+            <div className="blob"><br/></div>
+              <span className="img"><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652332045/foto3_grha74.png" className="img" /></span>
+              <div>
+              <h2>Kevin Torres</h2>
+              </div>
+              
+              <p>
+                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330716/1384014_ldaflo.png"  />Kevin Torres</p>
+                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330744/733609_bljs1a.png"  />Kinyein</p>
+                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330790/733641_ac7g0m.png"  />31000000</p>
+              </p>
+          </div>
+
+          <div className="card">
+            <div className="blob"><br/></div>
+              <span className="img"><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652332065/foto1_ieovnj.png" className="img" /></span>
+              <div>
+              <h2>Stiven Gonzalez</h2>
+              </div>
+              
+              <p>
+                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330716/1384014_ldaflo.png"  />Stiven Gonzalez </p>
+                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330744/733609_bljs1a.png"  />stevengm45</p>
+                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330790/733641_ac7g0m.png"  />31000000</p>
+              </p>
+          </div>
+        </div>
+
+
+        </div>
+
       </div>
-    </div>
+
   );
 };
 

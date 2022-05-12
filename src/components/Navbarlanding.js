@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import '../styles/CSS/styleNavBar.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
-import AddEstadia from './AddEstadia'
+
 import { Button, Offcanvas } from 'react-bootstrap'
 import UsePerfil from '../hooks/usePerfil'
 import { searchAsync } from '../Redux/actions/estadiaAction'
 import { Link } from 'react-router-dom'
 
-const NavBar = () => {
+const Navbarlanding = () => {
 
     const user = UsePerfil()
     const dispatch = useDispatch()
@@ -29,9 +29,11 @@ const NavBar = () => {
 
         return (
             <>
-                <Button variant="primary" onClick={handleShow} className="me-2 btn-sesion" style={{backgroundColor: "#488FB1",
+                <Button variant="primary" onClick={handleShow} className="me-2" style={{backgroundColor: "#488FB1",
                 border: "none",
-                borderRadius: "50%",
+                borderRadius: "20px",
+
+                margin: "0px 10px",
                 color: "white"}}>
                     <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652290251/666201_mowcru.png" className='perfil'/>
                 </Button>
@@ -77,6 +79,7 @@ const NavBar = () => {
     const { host } = useSelector(store => store.login)
 
     return (
+        <div>
         <header className='header'>
             <nav className="navbar">
                 <div className="div-img-navbar">
@@ -85,33 +88,20 @@ const NavBar = () => {
 
                 <div className="div-ul-nav">
                     <ul className="ul-opciones">
-                        <li><a href="news.asp">Experiencias</a></li>
-                        <li><Link to="/estadias">Estadias</Link></li>
+
+                        <li><Link to="/anfitrion">Se anfitrion</Link></li>
                         <li><Link to="/nosotros">Nosotros</Link></li>
-                        <li><Link to="/guias">Guías</Link></li>
-                        { host === true ? <li onClick={agregar}><a href="#">Agregar Estadía</a></li> : null}
                     </ul>
                 </div>
-                <div className="div-buscar">
-                    <form onSubmit={handleSubmit}>
-                        <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651107696/search-removebg-preview_dcrux1.png" alt="buscar" className="img-buscar" />
-                        <input
-                            type="text"
-                            className="input-buscar"
-                            onChange={handleChange}
-                        />
-                    </form>
-
-                    {['end'].map((placement, idx) => (
-                        <OffCanvasExample key={idx} placement={placement} name={placement} />
-                    ))}
-
+                <div className="div-sesion">
+                    <a href="/login"><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652290251/666201_mowcru.png" className='perfil-2'/></a> 
                 </div>
             </nav>
-            {modal === true ? <AddEstadia /> : ""}
         </header>
+
+        </div>
     )
 
 }
 
-export default NavBar
+export default Navbarlanding

@@ -1,10 +1,13 @@
 import React from 'react'
 import '../styles/CSS/Home.css'
+import Navbarlanding from './Navbarlanding'
 
 const Home = () => {
 
+
   return (
     <div>
+        <Navbarlanding />
         <main>
         <div>
             <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652242717/paisaje3_rhzxx8.jpg" alt="" class="banner-nav" />
@@ -16,27 +19,38 @@ const Home = () => {
             <div className="div-info-1-descripcion">
                 <h1>No tengas miedo a descubrir el mundo!</h1>
                 <h3>Encuentra muchos lugares maravillosos en medio de la naturaleza y desconectate del estres de la ciudad!</h3>
-                <button className="btn-vamos">Vamos!</button>
+                
+                <button className='btn-continuar'>
+                    <span>Vamos!</span>
+                    <svg width="34" height="34" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="37" cy="37" r="35.5" stroke="black" stroke-width="3"></circle>
+                        <path d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z" fill="black"></path>
+                    </svg>
+                </button>
             </div>
         </div>
 
         <div className="seccions">
+            
             <div className="seccion-img">
-                <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651109571/mujernegra_q1xasm.jpg" alt=""/>
-                <h3>Cultura</h3>
-            </div>
-            <div className="seccion-img">
-                <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651110566/comida_rnpz1o.jpg" alt=""/>
-                <h3>Gastronomia</h3>
+                <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651110564/oso_ufcbvc.jpg" alt=""/>
+                <h3>Fauna</h3>
+
             </div>
             <div className="seccion-img">
                 <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651111181/Captura2_iwu7mn.png" alt=""/>
                 <h3>Flora</h3>
             </div>
             <div className="seccion-img">
-                <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651110564/oso_ufcbvc.jpg" alt=""/>
-                <h3>Fauna</h3>
+                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652235194/cultura0_zagqnh.png" alt=""/>
+                <h3>Cultura</h3>
             </div>
+            <div className="seccion-img">
+                <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651110566/comida_rnpz1o.jpg" alt=""/>
+                <h3>Gastronomia</h3>
+            </div>
+
+
         </div>
 
         <div className="div-publica">
@@ -45,10 +59,14 @@ const Home = () => {
                     <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652288877/Dise%C3%B1o_sin_t%C3%ADtulo_2_rdljsv.png" alt="" className="img-campista"/>
                 </div>
                 <div className="subdiv-btn">
-                    <h2>No sabes donde ir?</h2>
-                    <button>
-                        Descubre!
-                    </button>
+                    <h2>Quieres viajar seguro y no sabes donde ir?</h2>
+                    <button className='btn-continuar'>
+                    <span>Descubre</span>
+                    <svg width="34" height="34" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="37" cy="37" r="35.5" stroke="black" stroke-width="3"></circle>
+                        <path d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z" fill="black"></path>
+                    </svg>
+                </button>
                 </div>
             </div>
             
@@ -58,9 +76,13 @@ const Home = () => {
                 </div>
                 <div className="subdiv-btn">
                     <h2>Publica tu lugar para que otros tengan donde llegar!</h2>
-                    <button>
-                        Publica!
-                    </button>
+                    <button className='btn-continuar'>
+                    <span>Publica</span>
+                    <svg width="34" height="34" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="37" cy="37" r="35.5" stroke="black" stroke-width="3"></circle>
+                        <path d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z" fill="black"></path>
+                    </svg>
+                </button>
                 </div>
             </div>
         </div>

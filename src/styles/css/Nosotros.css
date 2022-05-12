@@ -65,3 +65,103 @@
 .div-final img{
     border-radius: 15px;
 }
+
+.div-contacto-dev{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 50px 3%;
+}
+/* From uiverse.io by @gagan-gv */
+.card {
+    width: 260px;
+    height: 340px;
+    background: #b4b4b4;
+    border-radius: 25px;
+    text-align: center;
+    transition: all 0.5s;
+   }
+   
+   .card:hover {
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.623);
+    background-color: #4bb8ff;
+   }
+   
+   .card .blob {
+    height: 20px;
+    width: 75%;
+    border-radius: 0 0 30px 30px;
+    margin: 0 auto;
+    background-color: #4bb8ff;
+    visibility: visible;
+    transition: all 0.3s;
+   }
+   
+   .card:hover .blob {
+    height: 0;
+   }
+   
+   .card .img {
+    display: flex;
+    margin: 30px auto 10px auto;
+    width: 150px;
+    height: 150px;
+    background-color: #4bb8ff;
+    border-radius: 50%;
+    font-size: 11px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+   }
+   
+   .card:hover .img {
+    width: 80%;
+    height: 70%;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+   }
+   
+   .card div h2 {
+    padding: 15px 10px;
+    font-size: 25px;
+    transition: all 0.1s;
+    z-index: -99;
+    line-height: 17px;
+   }
+   
+   .card span {
+    font-size: 18px;
+   }
+   
+   .card:hover div>h2 {
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    transition: all 0.5s;
+   }
+   
+   .card>p {
+    opacity: 0;
+    transition: all 0.75s;
+    text-align: left;
+   }
+   .card>p>p{
+    margin: 3px;
+    padding: 0;
+    font-weight: 600;
+   }
+   .card>p>p>img {
+    width: 30px;
+    margin: 0 10px;
+   }
+   
+   .card:hover>p {
+    position: absolute;
+    bottom: 15px;
+    left: 35px;
+    opacity: 1;
+    transition: all 0.1s;
+   }

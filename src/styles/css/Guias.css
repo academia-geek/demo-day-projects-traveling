@@ -5,6 +5,13 @@
     justify-content: space-evenly;
     margin: 50px 3%;
 }
+.div-guias-2{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 50px 3%;
+}
 
 .subdiv-guias {
     text-align: center;
@@ -32,5 +39,101 @@
 }
 
 .icon-guia {
-    width: 30px;
+    width: 20px;
 }
+
+/* From uiverse.io by @gagan-gv */
+.card {
+    width: 250px;
+    height: 320px;
+    background: #d8d8d8;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.5s;
+   }
+   
+   .card:hover {
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.623);
+    background-color: #4bb8ff;
+   }
+   
+   .card .blob {
+    height: 15px;
+    width: 75%;
+    border-radius: 0 0 30px 30px;
+    margin: 0 auto;
+    background-color: #4bb8ff;
+    visibility: visible;
+    transition: all 0.3s;
+   }
+   
+   .card:hover .blob {
+    height: 0;
+   }
+   
+   .card .img {
+    display: flex;
+    margin: 30px auto 10px auto;
+    width: 120px;
+    height: 120px;
+    background-color: #4bb8ff;
+    border-radius: 50%;
+    font-size: 11px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+   }
+   
+   .card:hover .img {
+    width: 85%;
+    height: 80%;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+
+   }
+   
+   .card h2 {
+    padding: 15px 10px;
+    font-size: 35px;
+    transition: all 0.1s;
+    z-index: -99;
+    line-height: 17px;
+    color: #000000;
+   }
+   
+   .card span {
+    font-size: 25px;
+   }
+   
+   .card:hover h2 {
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    transition: all 0.5s;
+   }
+   
+   .card>div>p {
+    opacity: 0;
+    transition: all 0.75s;
+   }
+
+   .card>div>p>p {
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    font-size: 18px;
+   }
+
+   
+   .card>p>svg {
+    padding: 5px;
+   }
+   
+   .card:hover>div>p{
+    bottom: 15px;
+    left: 35px;
+    opacity: 1;
+    transition: all 0.1s;
+   }
