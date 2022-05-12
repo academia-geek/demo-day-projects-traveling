@@ -1,4 +1,4 @@
-#Traveling
+# Traveling
 
 Traveling will help you find that place you want in the middle of nature in a simple, reliable and safe way and if you are a host you can also publish your places so that others can see them and make a reservation
 
