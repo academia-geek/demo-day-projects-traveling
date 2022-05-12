@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "./NavBar";
 import "../styles/CSS/Nosotros.css";
 
-const Home = () => {
+const Nosotros = () => {
   return (
     <div>
       <div>
@@ -67,43 +67,43 @@ const Home = () => {
         <div className="div-contacto-dev">
           <div className="card">
               <div className="blob"><br/></div>
-                <span className="img"><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652332058/foto2_elmokt.png" className="img" /></span>
+                <span className="img"><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652332058/foto2_elmokt.png" className="img" alt=""/></span>
                 <div>
                 <h2>Brahian Alzate</h2>
                 </div>
                 
                 <p>
-                  <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330716/1384014_ldaflo.png"  />Brahian Alzate </p>
-                  <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330744/733609_bljs1a.png"  />Brahian-22</p>
-                  <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330790/733641_ac7g0m.png"  />31000000</p>
+                  <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330716/1384014_ldaflo.png"  alt=""/>Brahian Alzate </p>
+                  <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330744/733609_bljs1a.png"  alt=""/>Brahian-22</p>
+                  <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330790/733641_ac7g0m.png"  alt=""/>31000000</p>
                 </p>
           </div>
 
           <div className="card">
             <div className="blob"><br/></div>
-              <span className="img"><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652332045/foto3_grha74.png" className="img" /></span>
+              <span className="img"><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652332045/foto3_grha74.png" className="img" alt=""/></span>
               <div>
               <h2>Kevin Torres</h2>
               </div>
               
               <p>
-                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330716/1384014_ldaflo.png"  />Kevin Torres</p>
-                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330744/733609_bljs1a.png"  />Kinyein</p>
-                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330790/733641_ac7g0m.png"  />31000000</p>
+                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330716/1384014_ldaflo.png"  alt=""/>Kevin Torres</p>
+                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330744/733609_bljs1a.png"  alt=""/>Kinyein</p>
+                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330790/733641_ac7g0m.png"  alt=""/>31000000</p>
               </p>
           </div>
 
           <div className="card">
             <div className="blob"><br/></div>
-              <span className="img"><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652332065/foto1_ieovnj.png" className="img" /></span>
+              <span className="img"><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652332065/foto1_ieovnj.png" className="img" alt=""/></span>
               <div>
               <h2>Stiven Gonzalez</h2>
               </div>
               
               <p>
-                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330716/1384014_ldaflo.png"  />Stiven Gonzalez </p>
-                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330744/733609_bljs1a.png"  />stevengm45</p>
-                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330790/733641_ac7g0m.png"  />31000000</p>
+                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330716/1384014_ldaflo.png"  alt=""/>Stiven Gonzalez </p>
+                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330744/733609_bljs1a.png"  alt=""/>stevengm45</p>
+                <p><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652330790/733641_ac7g0m.png"  alt=""/>31000000</p>
               </p>
           </div>
         </div>
@@ -116,4 +116,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Nosotros;

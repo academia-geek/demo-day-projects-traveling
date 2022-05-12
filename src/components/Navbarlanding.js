@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import '../styles/CSS/styleNavBar.css'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
 
 import { Button, Offcanvas } from 'react-bootstrap'
 import UsePerfil from '../hooks/usePerfil'
-import { searchAsync } from '../Redux/actions/estadiaAction'
 import { Link } from 'react-router-dom'
 
 const Navbarlanding = () => {
@@ -13,10 +12,6 @@ const Navbarlanding = () => {
     const user = UsePerfil()
     const dispatch = useDispatch()
     const [modal, setModal] = useState(false)
-
-    const agregar = () => {
-        setModal(true)
-    }
 
     const handleLogout = () => {
         dispatch(logoutAsync())
@@ -35,7 +30,7 @@ const Navbarlanding = () => {
 
                 margin: "0px 10px",
                 color: "white"}}>
-                    <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652290251/666201_mowcru.png" className='perfil'/>
+                    <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652290251/666201_mowcru.png" className='perfil' alt=""/>
                 </Button>
                 <Offcanvas show={show} onHide={handleClose} {...props} style={{
                     display: "flex",
@@ -67,23 +62,12 @@ const Navbarlanding = () => {
         );
     }
 
-
-    const handleChange = ({ target }) => {
-        dispatch(searchAsync(target.value))
-    }
-
-    const handleSubmit = e => {
-        e.preventDefault()
-    }
-
-    const { host } = useSelector(store => store.login)
-
     return (
         <div>
         <header className='header'>
             <nav className="navbar">
                 <div className="div-img-navbar">
-                    <a href="/" className="div-a-navbar-img"><img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651119791/bird_1_omobzp.png" alt="" className="img-home" /> <p>Traveling</p> </a>
+                    <Link to="/home" className="div-a-navbar-img"><img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651119791/bird_1_omobzp.png" alt="" className="img-home" /> <p>Traveling</p> </Link>
                 </div>
 
                 <div className="div-ul-nav">
@@ -94,7 +78,7 @@ const Navbarlanding = () => {
                     </ul>
                 </div>
                 <div className="div-sesion">
-                    <a href="/login"><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652290251/666201_mowcru.png" className='perfil-2'/></a> 
+                    <a href="/login"><img src="https://res.cloudinary.com/travelingimg/image/upload/v1652290251/666201_mowcru.png" className='perfil-2' alt=""/></a> 
                 </div>
             </nav>
         </header>

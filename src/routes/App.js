@@ -3,8 +3,12 @@ import { collection, getDocs } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Anfitrion from '../components/Anfitrion'
+import Footer from '../components/Footer'
 import Home from '../components/Home'
 import Login from '../components/Login'
+import Navbarlanding from '../components/Navbarlanding'
+import Nosotros from '../components/Nosotros'
 import Register from '../components/Register'
 import { dataBase } from '../firebase/firebaseConfig'
 import { isUserHost } from '../Redux/actions/loginActions'
@@ -76,10 +80,23 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
+        { !isLogged ? <Navbarlanding /> : null}
         <Routes>
           <Route path="/home" element={
             <PublicRoutes isAuth={isLogged}>
               <Home />
+            </PublicRoutes>
+          } />
+
+          <Route path="/nosotros" element={
+            <PublicRoutes isAuth={isLogged}>
+              <Nosotros />
+            </PublicRoutes>
+          } />
+
+          <Route path="/anfitrion" element={
+            <PublicRoutes isAuth={isLogged}>
+              <Anfitrion />
             </PublicRoutes>
           } />
 
@@ -101,6 +118,7 @@ const App = () => {
             </PrivateRoutes>
           } />
         </Routes>
+        { !isLogged ? <Footer /> : null}
       </BrowserRouter>
     </div>
   )

@@ -21,7 +21,6 @@ const NavBar = () => {
     }, [user.correo])
 
     const { reservasUser } = useSelector(store => store.user)
-    console.log(reservasUser)
 
     const agregar = () => {
         setModal(true)
@@ -42,7 +41,7 @@ const NavBar = () => {
                 border: "none",
                 borderRadius: "50%",
                 color: "white"}}>
-                    <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652290251/666201_mowcru.png" className='perfil'/>
+                    <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652290251/666201_mowcru.png" className='perfil' alt=""/>
                 </Button>
                 <Offcanvas show={show} onHide={handleClose} {...props} style={{
                     display: "flex",
@@ -98,13 +97,12 @@ const NavBar = () => {
         <header className='header'>
             <nav className="navbar">
                 <div className="div-img-navbar">
-                    <a href="/" className="div-a-navbar-img"><img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651119791/bird_1_omobzp.png" alt="" className="img-home" /> <p>Traveling</p> </a>
+                    <Link to="/" className="div-a-navbar-img"><img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651119791/bird_1_omobzp.png" alt="" className="img-home" /> <p>Traveling</p> </Link>
                 </div>
 
                 <div className="div-ul-nav">
                     <ul className="ul-opciones">
-                        <li><Link to="/estadias">Estadias</Link></li>
-                        <li><Link to="/nosotros">Nosotros</Link></li>
+                        <li><Link to="/">Estadias</Link></li>
                         <li><Link to="/guias">Guías</Link></li>
                         { host === true ? <li onClick={agregar}><a href="#">Agregar Estadía</a></li> : null}
                     </ul>

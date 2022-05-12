@@ -12,7 +12,7 @@ export const registerSinc = (name, email, host, guia, imgGuia, contacto) => {
     }
 }
 
-const saveRegisterData = (name, email, host, guia, imgGuia, contacto) => {
+export const saveRegisterData = (name, email, host, guia, imgGuia, contacto) => {
     console.log({name, email, host})
     return (dispatch) => {
         addDoc(collection(dataBase, "users"), {name, email, host, guia, imgGuia, contacto})
