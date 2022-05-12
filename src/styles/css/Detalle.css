@@ -126,3 +126,8 @@
     border: none;
 }
 
+.img-carusel {
+    height: 600px;
+    object-fit: cover;
+}
+

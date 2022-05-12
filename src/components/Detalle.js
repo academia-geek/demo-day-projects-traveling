@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row, Carousel } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -70,32 +70,51 @@ export const Detalle = () => {
     inconAnchor: [30, 60]
   })
 
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+
+
   return (
     <div>
+
+      <div style={{marginTop: "25px"}}>
+      <Carousel activeIndex={index} onSelect={handleSelect} style={{margin: "auto", width: "90%"}} >
+      <Carousel.Item interval={1000}>
+        <img
+          className="d-block w-100 img-carusel"
+          src={images.imageMain}
+          alt="First slide"
+        />
+        <Carousel.Caption>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item interval={500}>
+        <img
+          className="d-block w-100 img-carusel"
+          src={images.image1}
+          alt="Second slide"
+        />
+
+        <Carousel.Caption>
+        </Carousel.Caption>
+      </Carousel.Item >
+      <Carousel.Item >
+        <img
+          className="d-block w-100 img-carusel"
+          src={images.image2}
+          alt="Third slide"
+        /> 
+
+        <Carousel.Caption>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+    </Carousel>
+    </div>
       <div className="div-main-detalle">
-        <div className="div-fotos-detalle">
-          <div xs={1} className="col-img">
-            <button className="mt-4">
-              <img className="imgSecund" src={images.image1} alt="img1" />
-            </button>
-            <br />
-            <button className="mt-4">
-              <img className="imgSecund" src={images.image2} alt="img2" />
-            </button>
-            <br />
-            <button className="mt-4">
-              <img className="imgSecund" src={images.image3} alt="img3" />
-            </button>
-          </div>
-
-          <div className="img-main-detallle">
-            <img
-              className="img-detalle"
-              src={images.imageMain}
-              alt="imgprincipal"
-            />
-          </div>
-
           <div>
             <h2 className="fs-5 fw-bold">{detailEstadia.nombre}</h2>
             <h4 className="stylBlue">
@@ -115,7 +134,7 @@ export const Detalle = () => {
               <span>{detailEstadia.descripcion}</span>
             </p>
           </div>
-        </div>
+        
 
         <div className="div-servicio">
           <h3>Servicios</h3>
