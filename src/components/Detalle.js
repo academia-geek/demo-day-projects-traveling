@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { deleteEstadia, listEstadiaAsync } from '../Redux/actions/estadiaAction';
 import ListarEstadias from './ListarEstadias';
+import { BsArrowBarLeft } from 'react-icons/bs'
 import '../styles/CSS/Detalle.css'
 import 'leaflet/dist/leaflet.css'
 import {
   MapContainer,
   TileLayer,
   Marker,
-  Popup
 } from 'react-leaflet';
 import { Icon } from 'leaflet';
 
@@ -72,6 +72,7 @@ export const Detalle = () => {
 
   return (
     <div>
+      <button className='btn-regresar' onClick={() => navigate(-1)}> <BsArrowBarLeft className='icon-arrow'/>Regresar</button>
       <div className="div-main-detalle">
         <div className="div-fotos-detalle">
           <div xs={1} className="col-img">
@@ -125,6 +126,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652152004/2460762_vo0spj.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>Dormitorios</p>
             </div>
@@ -132,6 +134,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652152050/2460781_oemq4w.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>Baños</p>
             </div>
@@ -139,6 +142,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652151915/857681_eoie5m.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>Cocina</p>
             </div>
@@ -146,6 +150,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652151862/93158_zxu3cp.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>Wifi</p>
             </div>
@@ -153,6 +158,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652152908/2804212_gobsly.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>Parqueadero</p>
             </div>
@@ -160,6 +166,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652152126/2460768_u9rrjh.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>TV</p>
             </div>
@@ -167,6 +174,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652152250/2838912_ql1cpp.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>GPS</p>
             </div>
@@ -174,6 +182,7 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652153122/4671557_u56qfe.png"
                 className="icon-servicio"
+                alt=""
               />
               <p>Guia</p>
             </div>
@@ -187,13 +196,14 @@ export const Detalle = () => {
               <img
                 src="https://res.cloudinary.com/travelingimg/image/upload/v1652154128/3439380_gleey4.png"
                 className="icon-max-person"
+                alt=""
               />
               <p>{detailEstadia.maxPersonas}</p>
             </div>
             <hr />
             <div className="div-reservas">
               <div>
-                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652158008/2460737_oqkdgr.png" />
+                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652158008/2460737_oqkdgr.png" alt="" />
                 <h3>Reserva</h3>
               </div>
               <div className="div-fechas">
@@ -211,7 +221,7 @@ export const Detalle = () => {
             <hr />
             <div className="div-anfitrion">
               <div>
-                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652156422/7440832_iebbfe.png" />
+                <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652156422/7440832_iebbfe.png" alt="" />
               </div>
               <div>
                 <h3>Anfitrion</h3>
@@ -242,7 +252,7 @@ export const Detalle = () => {
                         navigate("/");
                       }
                     })
-                    
+
                   }}
                   className="btn-delete"
                   variant="danger"

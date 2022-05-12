@@ -126,3 +126,22 @@
     border: none;
 }
 
+.btn-regresar{
+    border: none;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 3px 10px;
+    background-color: #488FB1;
+    color: white;
+    transition: .3s;
+}
+
+.btn-regresar:hover{
+    transform: scale(1.1);
+    background-color: #fff;
+    color: #000;
+}
+
+.icon-arrow{
+    font-size: 26px;
+}

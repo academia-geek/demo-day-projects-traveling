@@ -57,7 +57,9 @@ const NavBar = () => {
                                 border: "1px solid gray",
                                 
                             }} src={user.foto} alt="fotoPerfil" />
-                            : (<img className="imgUser" src="https://res.cloudinary.com/dainl1ric/image/upload/v1651121411/login_1_o1jahq.png" alt="fotoPerfil" />)}
+                            : (<img className="imgUser" src="https://cdn-icons-png.flaticon.com/512/1361/1361728.png" alt="fotoPerfil" style={{
+                                width: '80px'
+                            }}/>)}
                         <h2  style={{fontSize: "15px", textAlign:"center"}}>{user.nombre}</h2>
                         <h4  style={{fontSize: "15px", textAlign:"center"}}>{user.correo}</h4>
                         <hr style={{width: "320px", backgroundColor: "gray"}}/>
