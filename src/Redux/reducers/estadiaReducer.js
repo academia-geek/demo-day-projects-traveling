@@ -25,6 +25,10 @@ export const estadiaReducer = (state = initialState, action) => {
             return {
                 estadias: state.estadias.filter((p) => p.id !== action.payload),
             };
+        case typeEstadia.filterPrice:
+            return {
+                estadias: [...state.estadias.filter(es => es.precio < action.payload)]
+            };
         default:
             return state;
     }

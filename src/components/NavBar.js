@@ -3,9 +3,9 @@ import '../styles/CSS/styleNavBar.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
 import AddEstadia from './AddEstadia'
-import { Button, Offcanvas } from 'react-bootstrap'
+import { Button, Form, Offcanvas } from 'react-bootstrap'
 import UsePerfil from '../hooks/usePerfil'
-import { searchAsync } from '../Redux/actions/estadiaAction'
+import { filterPriceAsync, searchAsync } from '../Redux/actions/estadiaAction'
 import { Link } from 'react-router-dom'
 
 const NavBar = () => {
@@ -29,13 +29,15 @@ const NavBar = () => {
 
         return (
             <>
-                <Button variant="primary" onClick={handleShow} className="me-2" style={{backgroundColor: "#488FB1",
-                border: "none",
-                borderRadius: "20px",
-                width: "100px",
-                padding: "5px",
-                margin: "0px 10px",
-                color: "white"}}>
+                <Button variant="primary" onClick={handleShow} className="me-2" style={{
+                    backgroundColor: "#488FB1",
+                    border: "none",
+                    borderRadius: "20px",
+                    width: "100px",
+                    padding: "5px",
+                    margin: "0px 10px",
+                    color: "white"
+                }}>
                     Perfil
                 </Button>
                 <Offcanvas show={show} onHide={handleClose} {...props} style={{
@@ -50,20 +52,20 @@ const NavBar = () => {
                             Logout
                         </button>
                     </Offcanvas.Header>
-                    <Offcanvas.Body style={{ display: "flex", alignItems: "center", flexDirection: "column", gap: "10px"}}>
+                    <Offcanvas.Body style={{ display: "flex", alignItems: "center", flexDirection: "column", gap: "10px" }}>
                         {user.foto !== null
                             ? <img style={{
                                 borderRadius: "100px",
                                 border: "1px solid gray",
-                                
+
                             }} src={user.foto} alt="fotoPerfil" />
                             : (<img className="imgUser" src="https://cdn-icons-png.flaticon.com/512/1361/1361728.png" alt="fotoPerfil" style={{
                                 width: '80px'
-                            }}/>)}
-                        <h2  style={{fontSize: "15px", textAlign:"center"}}>{user.nombre}</h2>
-                        <h4  style={{fontSize: "15px", textAlign:"center"}}>{user.correo}</h4>
-                        <hr style={{width: "320px", backgroundColor: "gray"}}/>
-                        <h4  style={{fontSize: "16px", textAlign:"center"}}>Estadías agendadas</h4>
+                            }} />)}
+                        <h2 style={{ fontSize: "15px", textAlign: "center" }}>{user.nombre}</h2>
+                        <h4 style={{ fontSize: "15px", textAlign: "center" }}>{user.correo}</h4>
+                        <hr style={{ width: "320px", backgroundColor: "gray" }} />
+                        <h4 style={{ fontSize: "16px", textAlign: "center" }}>Estadías agendadas</h4>
                     </Offcanvas.Body>
                 </Offcanvas>
             </>
@@ -77,6 +79,11 @@ const NavBar = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
+    }
+
+    const selectChange = ({ target }) => {
+        console.log(target.value)
+        dispatch(filterPriceAsync(target.value))
     }
 
     const { host } = useSelector(store => store.login)
@@ -96,17 +103,27 @@ const NavBar = () => {
                         <li><Link to="/anfitrion">Se anfitrion</Link></li>
                         <li><a href="contact.asp">Contactanos</a></li>
 
-                        { host === true ? <li onClick={agregar}><a href="#">Agregar Estadía</a></li> : null}
+                        {host === true ? <li onClick={agregar}><a href="#">Agregar Estadía</a></li> : null}
                     </ul>
                 </div>
                 <div className="div-buscar">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} style={{display: 'flex', gap: '10px'}}>
                         <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651107696/search-removebg-preview_dcrux1.png" alt="buscar" className="img-buscar" />
                         <input
                             type="text"
                             className="input-buscar"
                             onChange={handleChange}
                         />
+
+                        <Form.Select onChange={selectChange}>
+                            <option>Todos los precios</option>
+                            <option value="50">Menos de 50000</option>
+                            <option value="100">Menos de 100000</option>
+                            <option value="190">Menos de 190000</option>
+                            <option value="200">Menos de 200000</option>
+                            <option value="500">Menos de 500000</option>
+                            <option value="700">Menos de 700000</option>
+                        </Form.Select>
                     </form>
 
                     {['end'].map((placement, idx) => (

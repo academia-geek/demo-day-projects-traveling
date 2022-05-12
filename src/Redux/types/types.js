@@ -9,5 +9,6 @@ export const typeEstadia = {
     add: "add",
     list: "list",
     search: 'search',
-    delete: "delete"
+    delete: "delete",
+    filterPrice: 'Filter Price'
 }
