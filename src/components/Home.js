@@ -1,17 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../styles/CSS/Home.css'
 import Navbarlanding from './Navbarlanding'
 
 const Home = () => {
-
-
-  return (
-    <div>
-        <Navbarlanding />
-        <main>
+    return (
         <div>
-            <img src="https://res.cloudinary.com/travelingimg/image/upload/v1652242717/paisaje3_rhzxx8.jpg" alt="" class="banner-nav" />
-        </div>
+            <Navbarlanding />
+            <main>
+                
         <div className="div-info-1">
             <div>
                 <img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651109091/Captura_p7mznq.png" alt="" className="img-info-1"/>
