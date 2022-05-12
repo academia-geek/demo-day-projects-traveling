@@ -8,6 +8,7 @@ export const types = {
 export const typeEstadia = {
     add: "add",
     list: "list",
+    edit: "edit",
     search: 'search',
     delete: "delete"
 }

@@ -14,6 +14,7 @@ import {
   Popup
 } from 'react-leaflet';
 import { Icon } from 'leaflet';
+import EditarEstadia from './EditarEstadia';
 
 export const Detalle = () => {
   const { estadias } = useSelector((state) => state.estadias);
@@ -33,11 +34,14 @@ export const Detalle = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  // const editar = (id) => {
-  //   const getEstadia = estadias.find((p) => p.id === id);
-  //   setModal(true);
-  //   setEnviarDatosModal(getEstadia);
-  // };
+  const [modal, setModal] = useState(false);
+  const [enviarDatosModal, setEnviarDatosModal] = useState([]);
+
+  const editar = (id) => {
+    const getEstadia = estadias.find((p) => p.id === id);
+    setModal(true);
+    setEnviarDatosModal(getEstadia);
+  };
 
   useEffect(() => {
     if (estadias) {
@@ -238,7 +242,8 @@ export const Detalle = () => {
                 <p>{detailEstadia.contacto}</p>
               </div>
               <div className="div-btns">
-                <Button className="btn-editar">Editar</Button>
+                <Button className="btn-editar"
+                onClick={() => editar(detailEstadia.id)}>Editar</Button>
                 <Button
                   onClick={() => {
                     Swal.fire({
@@ -270,6 +275,7 @@ export const Detalle = () => {
                 </Button>
               </div>
             </div>
+                  {modal === true ? <EditarEstadia modal={enviarDatosModal} /> : ""}
             <hr />
             <MapContainer
               center={position === undefined ? [3.513, -73.147] : [position.latitude, position.longitud]}

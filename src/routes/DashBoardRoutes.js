@@ -7,6 +7,7 @@ import Home from '../components/Home'
 import Nosotros from '../components/Nosotros'
 import ListarEstadias from '../components/ListarEstadias'
 import NavBar from '../components/NavBar'
+import EditarEstadia from '../components/EditarEstadia'
 
 
 const DashBoardRoutes = ({ isHost }) => {
@@ -21,6 +22,7 @@ const DashBoardRoutes = ({ isHost }) => {
                 <Route path="/nosotros" element={<Nosotros />} />
                 <Route path="/anfitrion" element={<Anfitrion />} />
                 <Route path="/guias" element={<Guias />} />
+                <Route path="/editar" element={<EditarEstadia/>}/>
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
             <Footer />

@@ -29,15 +29,15 @@ const AddEstadia = () => {
       descripcion: "",
       ubicacion: "",
       servicios: [],
-      caracteristicas: [],
       categoria: "",
+      precio: "",
       maxPersonas: "",
       propietario: "",
       contacto: "",
     },
     onSubmit: (data) => {
 
-      const { nombre, imagenes, descripcion, ubicacion, servicios, caracteristicas, categoria, maxPersonas, propietario, contacto } = data
+      const { nombre, imagenes, descripcion, ubicacion, servicios, categoria, precio, maxPersonas, propietario, contacto } = data
       dispatch(addEstadiaAsync(
         {
           nombre,
@@ -45,8 +45,8 @@ const AddEstadia = () => {
           descripcion,
           ubicacion,
           servicios,
-          caracteristicas,
           categoria,
+          precio,
           maxPersonas,
           propietario,
           contacto,
@@ -136,11 +136,10 @@ const AddEstadia = () => {
               className="form-control mt-2"
               name="ubicacion"
               autoComplete="off"
-              placeholder="Ubicación de la estadía"
+              placeholder="ubicación estadía. ej: Medellín - Antioquia "
               onChange={formik.handleChange}
               required
             />
-
             <textarea
               className="form-control mt-2"
               autoComplete="off"
@@ -150,7 +149,8 @@ const AddEstadia = () => {
               required
             />
 
-            <select name="categoria">
+            <select name="categoria"
+            onChange={formik.handleChange}>
               <option value={"Cabaña"}>Cabaña</option>
               <option value={"Casa de campo"}>Casa de campo</option>
               <option value={"Casa vacacional"}>Casa vacacional</option>
@@ -179,14 +179,6 @@ const AddEstadia = () => {
               autoComplete="off"
               name="maxPersonas"
               placeholder="Máximo de personas"
-              onChange={formik.handleChange}
-              required
-            />
-            <textarea
-              className="form-control mt-2"
-              autoComplete="off"
-              name="caracteristicas"
-              placeholder="Caracteristicas"
               onChange={formik.handleChange}
               required
             />
