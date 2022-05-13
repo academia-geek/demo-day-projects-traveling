@@ -4,7 +4,7 @@
 Traveling is a platform where you can find many ecotourism places where you can stay safely and reliably in different cities and towns in Colombia and also find hotels and accommodations near these beautiful places in the middle of nature which offer high quality services. for you to have a good stay.
 
 ## Usage
-## [Traveling](https://demo-day-projects-traveling-n6qlc1z18-yourfgod.vercel.app/)
+## [Traveling](https://demo-day-projects-traveling.vercel.app/home)
 
 
 ## Development :hammer_and_wrench:
