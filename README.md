@@ -12,9 +12,9 @@ Traveling is a platform where you can find many ecotourism places where you can 
 
 - React, Redux, Firebase, npm, Leaflet, Cloudynary, Vercel, css, Bootstrap, Stylecomponent
 
-Thanks to this we have been able to design and create a modern, pleasant and dynamic interface for the user, where in an easy way you can use the platform that will make your experience when finding a new place to explore in the middle of nature discover the richness of: flower: flora, :bear: fauna, :woman_ceñuda: culture and :coffee: gastronomy of Colombia.
+Thanks to this we have been able to design and create a modern, pleasant and dynamic interface for the user, where in an easy way you can use the platform that will make your experience when finding a new place to explore in the middle of nature discover the richness of :flower: flora, :bear: fauna, :woman: culture and :coffee: gastronomy of Colombia.
 
-# <p align="center">  <img src="/src/imgs/Captura.png" width="60"></p> 
+# <p align="center">  <img src="/src/imgs/Captura.png" width="600"></p> 
 
 
 
