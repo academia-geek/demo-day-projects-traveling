@@ -7,6 +7,29 @@ margin: auto;
 
 }
 
+.div-register{
+    display: flex;
+    flex-direction: row;
+    background-color: #0fa8ad;
+    margin: auto;
+    padding: 30px;
+    width: 850px;
+    border-radius: 20px;
+}
+
+.div-register>div{
+    text-align: center;
+}
+
+.img-icon-register{
+    width: 60%;
+}
+
+.img-register{
+    width: 100%;
+    border-radius: 15px;
+}
+
 /* From uiverse.io by @alexmaracinaru */
 .btn-login{
     cursor: pointer;
