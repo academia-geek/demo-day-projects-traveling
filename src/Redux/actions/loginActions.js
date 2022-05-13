@@ -2,6 +2,7 @@ import { types } from "../types/types"
 import { getAuth, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
 import { facebook, google } from "../../firebase/firebaseConfig"
 import { saveRegisterData } from "./registerActions"
+import Swal from "sweetalert2"
 
 const auth = getAuth()
 
@@ -19,16 +20,17 @@ export const loginAsync = ({ email, password }) => {
 
         signInWithEmailAndPassword(auth, email, password)
             .then(resp => {
-                console.log(resp)
                 console.log('Usuario autorizado')
 
                 dispatch(loginSinc(email, password))
             })
             .catch(error => {
                 console.log('Usuario no autorizado')
-                console.warn(error)
-                console.warn(error.code)
-                console.warn(error.message)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Usuario Incorrecto',
+                    text: 'El usuario y/o contraseña no existen, intentalo de nuevo o registrare si aun no lo estas',
+                })
             })
     }
 }
@@ -46,14 +48,14 @@ export const loginGoogle = () => {
 export const loginFacebook = () => {
 
     signInWithPopup(auth, facebook)
-      .then(resp => {
+        .then(resp => {
             console.log(resp)
             console.log(resp.user)
         })
         .catch(error => {
             console.log(error)
         })
-  
+
 };
 
 export const logoutAsync = () => {
