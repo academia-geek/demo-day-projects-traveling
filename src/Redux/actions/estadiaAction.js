@@ -11,7 +11,7 @@ export const addEstadiaAsync = (newEstadia) => {
     addDoc(collection(dataBase, "estadias"), newEstadia)
       .then((resp) => {
         dispatch(addEstadiaSync(newEstadia));
-        dispatch(listEstadiaAsync());
+        dispatch(listEstadiaAsync()); 
       })
       .catch((error) => {
         console.log(error);

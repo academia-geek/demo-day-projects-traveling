@@ -7,9 +7,7 @@ import '../styles/css/ListarEstadias.css'
 
 const ListarEstadias = () => {
   const { estadias } = useSelector((state) => state.estadias)
-  const dispatch = useDispatch();
-
-  console.log(estadias)
+  const dispatch = useDispatch(); 
 
   useEffect(() => {
     dispatch(listEstadiaAsync())

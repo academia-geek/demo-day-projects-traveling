@@ -1,8 +1,6 @@
 import { CardReserva } from "../styles/styledComp/listReservaStyle"
 
 const ListarReservas = ({toList}) => {
-    
-    console.log(toList)
 
     return (
         <div>

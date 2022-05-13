@@ -18,7 +18,6 @@ export const reservarAsync = (name, email, reserva) => {
             dispatch(saveRegisterData(name, email, false, false, ''))
             dispatch(reservarAsync(name, email, reserva))
         } else {
-            console.log(name, email, reserva)
 
             const documentRef = doc(dataBase, 'users', id)
             await updateDoc(documentRef, { reserva })
