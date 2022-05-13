@@ -11,7 +11,6 @@ export const listGuiaAsync = () => {
                 ...doc.data()
             })
         })
-        console.log(guias)
         dispatch(listGuiaSync(guias))
     }
 }

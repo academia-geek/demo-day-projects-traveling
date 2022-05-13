@@ -10,7 +10,7 @@ const Anfitrion = () => {
         <div className="header-anfitrion">
             <div className="div-anfitrion">
                 <a href="/"><img src="https://res.cloudinary.com/travelingimg/image/upload/v1651730227/bird_2_xhqowt.png" alt="" className="img-header-anfitrion" /></a> 
-                <h1>Se parte de la experiencia de los demas y oferta tu lugar</h1>
+                <h1>Se parte de la experiencia de los demas y oferta tu lugar registrandote como hospedador.</h1>
 
                 <a href='/login' className="btn-seanfitrion">Se anfitrion!</a>
             </div>
@@ -21,7 +21,7 @@ const Anfitrion = () => {
 
         <div>
             <div className="h1-servicio">
-                <h1>Brinda los mejores opciones y servicios como anfitrio a tus residentes.</h1>
+                <h1>Brinda los mejores opciones y servicios como anfitrion a tus residentes.</h1>
             </div>
             <div className="div-imgs-servicio">
                 <div className="img-servicio">

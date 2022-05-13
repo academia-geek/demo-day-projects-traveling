@@ -164,6 +164,7 @@ bode {
 .seccions {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 80px;
@@ -299,12 +300,20 @@ bode {
 .footer {
     background-color: black;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 50px 100px;
     color: white;
     text-align: center;
+}
+
+@media screen and (max-width: 560px){
+    .footer{
+        justify-content: center;
+        gap: 40px;
+    }
 }
 
 .icon-contacto {

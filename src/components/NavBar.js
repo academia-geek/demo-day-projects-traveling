@@ -22,7 +22,6 @@ const NavBar = () => {
 
     const { reservasUser } = useSelector(store => store.user)
 
-    console.log(reservasUser)
     const agregar = () => {
         setModal(true)
     }
