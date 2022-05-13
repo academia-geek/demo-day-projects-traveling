@@ -16,13 +16,6 @@ Thanks to this we have been able to design and create a modern, pleasant and dyn
 
 # <p align="center">  <img src="/src/imgs/Captura.PNG" width="600"></p> 
 
-
-
-
-# Traveling
-
-Traveling will help you find that place you want in the middle of nature in a simple, reliable and safe way and if you are a host you can also publish your places so that others can see them and make a reservation
-
 ## Set up
 
 You'll need [Node.js](https://nodejs.org/en/) installed
