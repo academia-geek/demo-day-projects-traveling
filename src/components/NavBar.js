@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import '../styles/CSS/styleNavBar.css'
+import '../styles/css/styleNavBar.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
 import AddEstadia from './AddEstadia'
@@ -22,6 +22,7 @@ const NavBar = () => {
 
     const { reservasUser } = useSelector(store => store.user)
 
+    console.log(reservasUser)
     const agregar = () => {
         setModal(true)
     }
@@ -96,13 +97,13 @@ const NavBar = () => {
     return (
         <header className='header'>
             <nav className="navbar">
-                <div className="div-img-navbar">
+                <div className="div-img-navbar" onClick={() => window.location.reload()}>
                     <Link to="/" className="div-a-navbar-img"><img src="https://res.cloudinary.com/dainl1ric/image/upload/v1651119791/bird_1_omobzp.png" alt="" className="img-home" /> <p>Traveling</p> </Link>
                 </div>
 
                 <div className="div-ul-nav">
                     <ul className="ul-opciones">
-                        <li><Link to="/">Estadias</Link></li>
+                        <li onClick={() => window.location.reload()}><Link to="/">Estadias</Link></li>
                         <li><Link to="/guias">Guías</Link></li>
                         { host === true ? <li onClick={agregar}><a href="#">Agregar Estadía</a></li> : null}
                     </ul>

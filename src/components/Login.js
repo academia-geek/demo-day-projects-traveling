@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { loginAsync, loginFacebook, loginGoogle } from '../Redux/actions/loginActions';
 import { ContainerForm, Error, LoginGoogleFace } from '../styles/styledComp/formsStyle';
 import { Link } from 'react-router-dom';
-import '../styles/CSS/Login.css'
+import '../styles/css/Login.css'
 
 let schema = yup.object().shape({
     email: yup.string().email('Debe escribir un correo valido').required('Campo Requerido'),
@@ -70,7 +70,7 @@ const Login = () => {
                         <input
                             type="password"
                             name="password"
-                            placeholder='Password'
+                            placeholder='Contraseña'
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.password}

@@ -3,13 +3,11 @@ import { Card, Container } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { listEstadiaAsync } from '../Redux/actions/estadiaAction';
-import '../styles/CSS/ListarEstadias.css'
+import '../styles/css/ListarEstadias.css'
 
 const ListarEstadias = () => {
   const { estadias } = useSelector((state) => state.estadias)
-  const dispatch = useDispatch();
-
-  console.log(estadias)
+  const dispatch = useDispatch(); 
 
   useEffect(() => {
     dispatch(listEstadiaAsync())

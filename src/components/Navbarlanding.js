@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../styles/CSS/styleNavBar.css'
+import '../styles/css/styleNavBar.css'
 import { useDispatch } from 'react-redux'
 import { logoutAsync } from '../Redux/actions/loginActions'
 

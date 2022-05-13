@@ -2,7 +2,6 @@ import { Route, Routes, Navigate } from 'react-router-dom'
 import { Detalle } from '../components/Detalle'
 import Footer from '../components/Footer'
 import Guias from '../components/Guias'
-import Home from '../components/Home'
 import ListarEstadias from '../components/ListarEstadias'
 import NavBar from '../components/NavBar'
 
