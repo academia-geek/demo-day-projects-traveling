@@ -52,8 +52,10 @@ const Register = () => {
 	return (
 		<ContainerForm>
 			<div className="div-register">
-				<div className='img-icon-login'>
-					<img className="logoImg" src="https://res.cloudinary.com/dainl1ric/image/upload/v1651120998/bird_2_djvrbx.png" alt="bird-icon" />
+				<div className='img-icon-register'>
+					{/* <img className="logoImg" src="https://res.cloudinary.com/dainl1ric/image/upload/v1651120998/bird_2_djvrbx.png" alt="bird-icon" /> */}
+					<img className="img-register" src="https://res.cloudinary.com/travelingimg/image/upload/v1652417794/image_3_npfbn4.png" alt="bird-icon" />
+					
 				</div>
 
 				<div>

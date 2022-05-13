@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const ContainerForm = styled.div`
     text-align: center;
     margin: 50px;
+
     /* background-color: ; */
 
 
@@ -14,7 +15,7 @@ export const ContainerForm = styled.div`
         align-items: center;
         gap: 10px;
         margin: 20px;
-
+        margin-bottom: 0px;
         input{
             padding: 6px 15px;
             border: 1px solid grey;
