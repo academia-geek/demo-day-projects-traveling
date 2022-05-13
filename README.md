@@ -26,6 +26,7 @@ You'll need [Node.js](https://nodejs.org/en/) installed
 - Red Google: #F23C3C
 - Cyan: #0fa8ad
 - Light Green: #7FC8A9
+- Green: #A6C900
 - Dark Green: #4b5f2b
 - Red: #FF0000
 - Light Gray: #999898
